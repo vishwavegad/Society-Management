@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="forgot-pws.css">
+</head>
+<body>
+    <div class="container">
+        <div class="step" id="step-email">
+            <h2> Forgot Password </h2>
+            <input type="text" name="" id="email" placeholder="Enter Email Adress">
+            <!-- <a href="verification.html"> -->
+                <button id="sendOtp">Send OTP</button>
+            </a>
+        </div>
+
+        <div class="step hidden" id="step-otp">
+            <h2 class="title">Verify OTP</h2>
+            <!-- <p class="description">Please enter 4 digit verification code that is sent to your email adress</p> -->
+            <div class="input-container">
+                <input type="number" class="otp-input" autofocus>
+                <input type="number" class="otp-input">
+                <input type="number" class="otp-input">
+                <input type="number" class="otp-input">
+            </div>
+            <a href="new-pws.html">
+            <button class="verify" id="verifyOtp">Verify OTP</button>
+            </a>
+            <p class="resend">Didn't received the code?
+                <a href="#" class="resend-link">Resend OTP</a>
+            </p>
+        </div>
+
+        <div class="step hidden" id="step-password">
+            <h2>New Password</h2>
+              <div class="password-container" id="step-hidden">
+                <input type="password" placeholder="Enter New Password" id="password1">
+                <span class="icon" id="togglePassword1">
+                  <img src="invisible.png" alt="icon" id="eyeicon1">
+                </span>
+              </div>
+              <div class="password-container">
+                <input type="password" placeholder="Confirm Password" id="password2">
+                <span class="icon" id="togglePassword2">
+                  <img src="invisible.png" alt="icon" id="eyeicon2">
+                </span>
+              </div>
+            
+            <a href="homepage.html">
+                <button id="submitPassword" class="submit">Submit</button>
+            </a>
+        </div>
+    </div>
+    <script src="forgot-pws.js"></script>
+</body>
+</html>
