@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+}
+
+.main {
+    max-height: 100vh;
+    margin-bottom: 0; 
+    padding-top: 100px;
+}
+main{
+    background-image: url('../landing/images/buildingblue.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+nav {
+    /* background-color: rgb(1, 17, 78);  */
+    background-color: #003366;
+    padding: 5px 0; 
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    transition: transform 0.3s ease;
+    /* padding: 0 20px; */
+}
+
+nav.hidden {
+    transform: translateY(-100%); /* Slide navbar out of view */
+}
+
+.logo img {
+    width: 200px;
+    height: 200px;
+    /* padding: 50px; */
+    /* text-align: center; */
+    margin-top: 40px;
+}
+
+.options {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.options a {
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    font-weight: 300;
+    transition: color 0.3s ease;
+}
+
+.options a::after {
+    content: "";
+    position: absolute;
+    left: 50%;  /* Start from the center */
+    bottom: 0;
+    width: 0;
+    height: 2px; /* Adjust thickness of the underline */
+    background-color: white; /* Color of the underline */
+    transition: width 0.3s ease, left 0.3s ease; /* Smooth transition effect */
+}
+
+
+.options a:hover::after {
+    width: 100%; /* Expands the underline to full width on hover */
+    left: 0;     /* Moves the start position to the beginning */
+}
+
+.color {
+    position: absolute;
+    top: 0;
+    /* left: 0;
+    right: 0;
+    bottom: 0;  */
+    height: 100%;
+    width: 100%;
+    /* width: 100vw; */
+    opacity: 0.83;
+    background-color: black;
+}
+
+.heading {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.4;
+    /* margin-bottom: 0px; */
+    padding: 40px;
+    margin-left: 30px;
+    /* text-align: center; */
+}
+
+.heading span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+    margin: 0 5px;
+}
+
+.signin {
+    position: relative;
+    z-index: 1;
+    color: white;
+    max-width: 1900px;
+    padding: 20px;
+}
+
+.signin a{
+    padding: 40px;
+    margin-left: 30px;
+}
+
+.signin button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    /* margin-top: 0; */
+    /* background-color: #4CAF50; */
+    /* background-color: rgb(1, 17, 78); */
+    background-color: #003366;
+    /* color: white; */
+    color: white; 
+    border: none;
+    border-radius: 30px;
+    transition: transform 0.5s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.signin button:hover {
+    /* background-color: #45a049; */
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

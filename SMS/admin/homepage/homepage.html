@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="../css/homepage.css">
+</head>
+
+<body>
+    <div class="split left">
+        <div class="home"><a href="../html/landing.html"><img width="40" height="40" src="https://img.icons8.com/sf-regular-filled/48/FFFFFF/home-page.png" alt="home-page"/></div></a>
+        <div class="center">
+            <div class="profile">
+                <img id="profile-img" src="../images/profilepic.jpeg" alt="Profile Picture" />
+                <input type="file" id="profile-img-input" accept="image/*">
+                <label for="profile-img-input" class="upload-button">Change Profile Picture</label>
+                <!-- <img src="profilepic.jpeg"> -->
+            </div>
+            <div class="features">
+                <button class="default-page-button" id="aboutsociety-button" data-url="aboutsociety.html">About Society</button>
+                <button id="announcement-button" data-url="announcement.html">Announcements</button>
+                <button id="amenities-button" data-url="amenities.html">Amenities</button>
+                <!-- <button>Voting</button> -->
+                <button id="maintenance-button" data-url="maintenance.html">Maintenance</button>
+                <button id="complaint-button" data-url="complaint.html">Complaints</button>
+            </div>
+        </div>
+    </div>
+    <div class="split right" id="right-content">
+       <!-- <div class="center">
+            <h1>Announcements</h1>
+            <div class="facilities">
+                <input type="text" id="meeting" value="Society Meeting" name="meeting">
+                </input>
+                <input type="text" id="due" value="Maintenance Due Date " name="due">
+                </input>
+                <input type="text" id="election" value="Committee" name="election">
+                </input>
+                <input type="text" id="function" value="Christmas Function" name="function">
+                </input>
+            </div>
+        </div> -->
+    </div>
+    <script src="../js/homepage.js"></script> 
+</body>
+</html>

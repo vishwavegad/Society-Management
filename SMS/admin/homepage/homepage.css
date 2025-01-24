@@ -1,0 +1,162 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+}
+
+/* Split layout */
+.split {
+    height: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.left {
+    left: 0;
+    width: 20%;
+    background-color: #003366;
+    z-index: 1;
+}
+
+.right {
+    right: 0;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    right: 0;
+    margin-left: 20%;
+    /* width: 80%; */
+    height: 100vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    position: relative;
+    /* background-color: #b0e0e6; */
+}
+
+/* .left .home p{
+    font-weight: bold;
+} */
+
+.left .home button{
+    position: fixed;
+    margin-left: 5px;
+    margin-top: 5px;
+    background-color: #003366;
+    color: white;
+    border: none;
+}
+
+.left .home button:hover{
+    cursor: pointer;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+}
+
+/* Profile section */
+.profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.profile img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    /* margin-top: 0px; */
+    margin-bottom: 10px;
+    /* margin-left: 14px; */
+    border-radius: 50%;
+}
+#profile-img-input{
+    display: none;
+}
+.upload-button{
+    display: inline-block;
+    color: white;
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.upload-button:hover{
+    background-color: #002244;
+}
+h2 {
+    font-size: 24px;
+    color: white;
+}
+
+/* Features section */
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.features button{
+    padding: 10px;
+    margin: 2px;
+    color: white;
+    border: none;
+    background-color: #003366;
+    font-size: 20px;
+}
+
+.features button:hover{
+    background-color: #002244;
+}
+.features button.active{
+    background-color: #002244;;
+}
+.features button:not(.active):hover{
+    background-color: #002244;
+}
+
+.features .btn-bg{
+    background-color: #002244;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .split {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .left, .right {
+        padding: 40px 20px;
+    }
+
+    .center {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+    }
+
+    footer {
+        position: relative;
+    }
+}

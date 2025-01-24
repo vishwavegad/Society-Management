@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socio-LinkUp</title>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../landing/landing.css">
+    <link rel="stylesheet" href="../landing/about us/aboutus.css">
+    <link rel="stylesheet" href="../landing/services/services.css">
+    <link rel="stylesheet" href="../landing/feedback/feedback.css">
+    <link rel="stylesheet" href="../landing/our team/ourteam.css">
+    <!-- <link rel="stylesheet" href="../contactus/contactus.css"> -->
+
+    <style>
+        body {
+            background-color: #d2e6e9;
+            font-family: 'Poppins';
+        }
+
+        /* Initial state: hidden and moved */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease-out;
+        }
+
+        /* When the element is in view */
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main" id="navbar">
+        <nav>
+            <div class="navbar">
+                <div class="logo">
+                    <img src="../landing/images/logo.png" alt="Socio-Link Up Logo">
+                </div>
+                <div class="box"></div>
+                <div class="options">
+                    <a href="#navbar">Home</a>
+                    <a href="#about">About Us</a>
+                    <a href="#services">Services</a>
+                    <a href="#feedback">Feedback</a>
+                    <a href="#team">Our Team</a>
+                    <a href="../contactus/contactus.html">Contact Us</a>
+                </div>
+                <!-- <a href="contactus.html">Contact Us</a> -->
+            </div>
+        </nav>
+        <main>
+            <div class="color"></div>
+            <div class="signin">
+                <h1 class="heading">
+                    <span>Secure and Reliable Housing Society </span><br><span>Management Services</span>
+                </h1>
+                <a href="../members/auth/login/login.html" target="_blank"><button>Sign In</button></a>
+            </div>
+        </main>
+
+
+    </div>
+
+    <!-- About Us Section -->
+    <div class="main2 reveal">
+        <h1 id="about">Who we Are</h1>
+        <div class="boxes">
+            <div class="box1">
+                <p>Your trusted partner in society management, empowering communities with transparent, efficient, and
+                    reliable management solutions.
+                    We are dedicated to transforming society management by streamlining communication, finances, and
+                    maintenance for a seamless living experience. We understand the unique challenges communities face
+                    and provide technology-driven
+                    solutions tailored to their needs.
+                </p>
+            </div>
+            <div class="box2">
+                <img src="../landing/images/pngegg.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Services Section -->
+    <!-- Header Section -->
+    <div class="services-section reveal" id="services">
+        <div class="header">
+            <span>Ways We</span>
+            <span class="serve">Serve</span>
+            <span>You</span>
+        </div>
+        <div class="services-container">
+            <!-- Service Card 1 -->
+            <div class="service-card">
+                <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/003366/communication.png"
+                    alt="communication" />
+                <h3>Efficient Communication</h3>
+                <p>Streamline communication between residents and management with instant notifications and updates.</p>
+            </div>
+
+            <!-- Service Card 2 -->
+            <div class="service-card">
+                <img width="50" height="50"
+                    src="https://img.icons8.com/ios-filled/50/003366/online-maintenance-portal.png"
+                    alt="online-maintenance-portal" />
+                <h3>Maintenance Tracking</h3>
+                <p>Submit and track maintenance requests effortlessly, ensuring quick resolutions and organized records.
+                </p>
+            </div>
+
+            <!-- Service Card 3 -->
+            <div class="service-card">
+                <img width="32" height="32"
+                    src="https://img.icons8.com/external-solidglyph-m-oki-orlando/32/003366/external-financial-management-business-solid-solidglyph-m-oki-orlando.png"
+                    alt="external-financial-management-business-solid-solidglyph-m-oki-orlando" />
+                <h3>Financial Management</h3>
+                <p>Handle payments, manage accounts, and keep transparent financial records for the community.</p>
+            </div>
+
+            <!-- Service Card 4 -->
+            <div class="service-card">
+                <img width="50" height="50"
+                    src="https://img.icons8.com/ios-filled/50/003366/commercial-development-management.png"
+                    alt="commercial-development-management" />
+                <h3>Visitor Management</h3>
+                <p>Control and track visitor access to enhance community safety with a secure and efficient visitor
+                    system.</p>
+            </div>
+
+            <!-- Service Card 5 -->
+            <div class="service-card">
+                <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/003366/booking.png"
+                    alt="booking" />
+                <h3>Event & Facility Booking</h3>
+                <p>Organize events and book facilities within the society, making it easy to reserve spaces for
+                    gatherings.</p>
+            </div>
+
+            <!-- Service Card 6 -->
+            <div class="service-card">
+                <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/003366/security-shield-green.png"
+                    alt="security-shield-green" />
+                <h3>Enhanced Security</h3>
+                <p>Access control and surveillance features provide additional security for a safe and secure
+                    environment.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Section -->
+    <div class="feedback-section reveal">
+        <p>Happy Users</p>
+        <h2 id="feedback">Feedback</h2>
+        <div class="feedback-container"><br><br>
+            <div class="feedback-card">
+                <div class="user-photo"><i class="fa-solid fa-user"></i></div>
+                <p>"The management system has transformed how we communicate within the society. Highly efficient and
+                    reliable."</p>
+                <div class="user-name">Aanshi Vadera</div>
+                <div class="client-role">Silver Oak</div>
+            </div>
+            <div class="feedback-card">
+                <div class="user-photo"><i class="fa-solid fa-user"></i></div>
+                <p>"Maintaining records and handling requests has never been easier. Truly a game-changer."</p>
+                <div class="user-name">Khushi Shah</div>
+                <div class="client-role">Greenwood Society</div>
+            </div>
+            <div class="feedback-card">
+                <div class="user-photo"><i class="fa-solid fa-user"></i></div>
+                <p>"A fantastic tool for managing finances and improving communication among residents."</p>
+                <div class="user-name">Vishwa Vegad</div>
+                <div class="client-role">Riverside Homes</div>
+            </div>
+            <div class="feedback-card">
+                <div class="user-photo"><i class="fa-solid fa-user"></i></div>
+                <p>"From seamless communication to effortless task management, this platform has truly elevated our
+                    efficiency and convenience!"</p>
+                <div class="user-name">Nandani Gohel</div>
+                <div class="client-role">Riverside Homes</div>
+            </div>
+        </div>
+        <div class="user-feedback">
+            <form id="feedback-form">
+                <div class="user-text">
+                    <p>Your Feedback</p>
+                    <textarea name="text" id="text"></textarea>
+                </div>
+                <button>Send</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="team-section reveal">
+        <h2 id="team">Students At Work</h2>
+        <div class="team-container">
+            <div class="team-member">
+                <h3>Aanshi Vadera</h3>
+            </div>
+            <div class="team-member">
+                <h3>Khushi Shah</h3>
+            </div>
+            <div class="team-member">
+                <h3>Vishwa Vegad</h3>
+            </div>
+            <div class="team-member">
+                <h3>Nandani Gohel</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Society Management. All rights reserved.</p>
+        </foote>
+        <script src="../landing/landing.js"></script>
+        <script src="../landing/feedback/feedback.js"></script>
+</body>
+
+</html>

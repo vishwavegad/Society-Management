@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /* background-color: #f0f2f5; */
+    background-color: #e6eced;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container{
+    /* background-color: #83ddf8; */
+    background-color: #B0E0E6;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+}
+
+.container h3{
+    text-align: center;
+    color: #003366;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.container h1{
+    text-align: center;
+    color: #003366;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="email"], input[type="tel"]{
+    color: rgb(90, 88, 88);
+    border:1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    /* width: 50%; */
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus{
+    outline: none;
+    border-color: #003366;
+}
+
+textarea{
+    color: rgb(90, 88, 88);
+    border:1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    width: 100%;
+    resize: vertical;
+    min-height: 100px;
+    font-weight: 548;
+    /* height: 100px; */
+    /* text-align: left; */
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus{
+    outline: none;
+    border-color: #003366;
+}
+
+button{
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    color: white;
+    /* background-color: blue; */
+    font-size: 16px;
+    background-color: #003366;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover{
+    /* background-color: rgb(9, 9, 131); */
+    background-color: #002244;
+}
