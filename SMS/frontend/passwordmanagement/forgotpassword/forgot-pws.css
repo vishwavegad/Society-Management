@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+    background-color: #B0E0E6;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    padding: 20px;
+    overflow: hidden;
+    max-width: 500px;
+    transition: height 0.5s ease, padding 0.5s ease;
+}
+
+.container h2{
+    text-align: center;
+    color: #003366;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.container p{
+    text-align: center;
+    color: rgb(90, 88, 88);
+    font-size: 20px;
+}
+
+input[type="text"]{
+    color: rgb(90, 88, 88);
+    border:1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus{
+    outline: none;
+    border-color: navy;
+}
+
+.input-container input::-webkit-inner-spin-button,
+.input-container input::-webkit-outer-spin-button{
+    display: none;
+}
+
+.verify{
+    pointer-events: none;
+    background-color: #96bbe0;
+}
+
+.input-container{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.otp-input{
+    width: 45px;
+    height: 45px;
+    color: rgb(90, 88, 88);
+    border:1px solid white;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.otp-input:focus{
+    outline: none;
+    border-color: navy;
+}
+
+.active{
+    background-color: #003366;
+    pointer-events: auto;
+}
+
+.resend-link{
+    text-decoration: none;
+    color: #053155;
+}
+
+.resend-link:hover{
+    color: #2196F3;
+}
+
+.hidden {
+    display: none;
+}
+
+.step {
+    margin-bottom: 20px;
+}
+
+button{
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    color: white;
+    /* background-color: blue; */
+    font-size: 16px;
+    background-color: #003366;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover{
+    /* background-color: rgb(9, 9, 131); */
+    background-color: #002244;
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+    }
+}
