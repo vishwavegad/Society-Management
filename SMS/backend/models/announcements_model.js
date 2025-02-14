@@ -4,11 +4,13 @@ const announcementsSchema = new mongoose.Schema({
     title:{
         type: String,
         required: true,
+        trim: true
     },
     description:{
         type: String,
         required: true,
+        trim: true
     }
 }, { timestamps: true });
 
-export const Announcements = mongoose.model('Announcements', announcementsSchema);
+module.exports = mongoose.model('Announcements', announcementsSchema);
