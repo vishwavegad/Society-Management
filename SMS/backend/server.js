@@ -3,6 +3,7 @@ const cors = require('cors');
 // const userRouter = require('./routes/user_route');
 const announcementRouter = require("./routes/announcement_route");
 const maintenanceRouter = require("./routes/maintenance_route");
+const complaintRouter = require("./routes/complaint_route");
 const connectMongoDB = require('./config/connection');
 const PORT = 3000;
 
@@ -25,6 +26,9 @@ app.use('/api/announcements', announcementRouter);
 
 //Maintenance Route
 app.use('/api/maintenance', maintenanceRouter);
+
+//Complaint Route
+app.use('/api/complaints',complaintRouter);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
