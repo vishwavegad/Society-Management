@@ -1,35 +1,54 @@
 const mongoose = require('mongoose');
 
 const maintainanceSchema = new mongoose.Schema({
-    username: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+    name: {
+        // type: mongoose.Schema.Types.ObjectId,
+        type: String,
+        // ref: "User",
         required: true,
+        trim: true
     },
     email: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        // type: mongoose.Schema.Types.ObjectId,
+        type: String,
+        // ref: "User",
         required: true,
         unique: true,
+        lowercase: true,
+        trim: true
     },
-    payment: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
+    amount: {
+            type: Number,
+            min: 1,
             required: true,
+    },
+    paymentMethod: {
+        type: String,
+        required: true,
+        enum: ["Credit Card", "Debit Card", "Bank Tansfer", "PayPal"],
     },
     pin: {
         type: String,
         required: true,
     },
     flatNum: {
-        type: Number,
-        required: true,
-    },
-    paymentMethod: {
         type: String,
         required: true,
-        enum: ["Credit Card", "Debit Card", "Bank Tansfer", "PayPal"],
+    },
+    transactionId: {
+        type: String,
+        required: true, 
+        unique: true
+    },
+    paymentStatus: {
+        type: String,
+        enum: ["pending", "completed", "failed"],
+        default: "pending"
+    },
+    timestamp: {
+        type: Date,
+        default: Date.now
     }
 }, { timestamps: true });
 
-export const Maintainance = mongoose.model('Maintainance', maintainanceSchema);
+module.exports = mongoose.model('Maintainance', maintainanceSchema);

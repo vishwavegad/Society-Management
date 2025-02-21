@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 // const userRouter = require('./routes/user_route');
 const announcementRouter = require("./routes/announcement_route");
+const maintenanceRouter = require("./routes/maintenance_route");
 const connectMongoDB = require('./config/connection');
 const PORT = 3000;
 
@@ -18,11 +19,12 @@ connectMongoDB('mongodb://127.0.0.1:27017/demo')
 app.use(express.urlencoded({ extended: false }));
 
 // app.use('/api/users', userRouter);
+
+//Announcement Route
 app.use('/api/announcements', announcementRouter);
 
-app.get('/', (req, res) => {
-    res.send('Hello, Society Management System!');
-});
+//Maintenance Route
+app.use('/api/maintenance', maintenanceRouter);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
