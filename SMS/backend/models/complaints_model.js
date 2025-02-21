@@ -2,23 +2,29 @@ const mongoose = require('mongoose');
 
 const complaintsSchema = new mongoose.Schema({
     username: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        // type: mongoose.Schema.Types.ObjectId,
+        // ref: "User",
+        type: String,
         required: true,
+        trim: true,
     },
     email: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        // type: mongoose.Schema.Types.ObjectId,
+        // ref: "User",
+        type: String,
         required: true,
-        unique: true,
+        trim: true,
+        // unique: true,
+        lowercase: true,
     },
     complaint: {
         type: String,
         required: true,
+        trim: true,
     },
     status: {
         type: String,
-        enum: ["Pending", "Resolved"],
+        enum: ["Pending", "In Progress", "Resolved"],
         default: "Pending",
     },
     flatNum: {
@@ -32,4 +38,6 @@ const complaintsSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
-export const Complaints = mongoose.model('Complaints', complaintsSchema);
+const Complaints = mongoose.model('Complaints', complaintsSchema);
+
+module.exports = Complaints;
