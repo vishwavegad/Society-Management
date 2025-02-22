@@ -48,4 +48,23 @@ async function getPaymentById(req, res) {
   }
 }
 
-module.exports = { getAllPayments, createNewPayment, getPaymentById };
+async function updatePaymentStatus(req, res) {
+  try {
+    const { paymentStatus } = req.body;
+    const updatedPayment = await Maintenance.findByIdAndUpdate(
+      req.params.id,
+      { paymentStatus },
+      { new: true, runValidators: true }
+    );
+    if (!updatedPayment) {
+      return res.status(404).json({ msg: "Payment not found" });
+    }
+    res
+      .status(200)
+      .json({ success: true, msg: "Payment status updated successfully" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+module.exports = { getAllPayments, createNewPayment, getPaymentById, updatePaymentStatus };
