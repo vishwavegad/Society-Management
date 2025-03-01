@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 // const userRouter = require('./routes/user_route');
+const signUpRouter = require("./routes/signup_route");
 const announcementRouter = require("./routes/announcement_route");
 const maintenanceRouter = require("./routes/maintenance_route");
 const complaintRouter = require("./routes/complaint_route");
@@ -14,12 +15,15 @@ app.use(express.json());
 //for frontend communication
 app.use(cors());  
 
-connectMongoDB('mongodb://127.0.0.1:27017/demo')
+connectMongoDB('mongodb://127.0.0.1:27017/SMS')
 .then(() => console.log('MongoDB connection established'));
 
 app.use(express.urlencoded({ extended: false }));
 
 // app.use('/api/users', userRouter);
+
+//User SignUp
+app.use("/auth/signup", signUpRouter);
 
 //Announcement Route
 app.use('/api/announcements', announcementRouter);
