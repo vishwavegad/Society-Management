@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 // const userRouter = require('./routes/user_route');
+ const loginRouter = require("./routes/login_route");  
 const signUpRouter = require("./routes/signup_route");
 const announcementRouter = require("./routes/announcement_route");
 const maintenanceRouter = require("./routes/maintenance_route");
@@ -21,6 +22,9 @@ connectMongoDB('mongodb://127.0.0.1:27017/SMS')
 app.use(express.urlencoded({ extended: false }));
 
 // app.use('/api/users', userRouter);
+
+//User Login
+app.use('/auth/login', loginRouter);
 
 //User SignUp
 app.use("/auth/signup", signUpRouter);
