@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     // document.querySelector('.announcement-list').prepend(searchInput);
     addBtn.addEventListener("click", ()=>{
         announcementTextContainer.classList.add('active');
-        announcementTextContainer.style.display = "flex";
+        announcementTextContainer.style.display = "flex"?"none":"flex";
         // announcementTextArea.value = "";
         // console.log("Clicked");
     })
