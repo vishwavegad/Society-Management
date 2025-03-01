@@ -5,25 +5,23 @@
 }
 
 body{
-    /* background-color: #f0f2f5; */
     background-color: #d2e6e9;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    overflow: hidden;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
 }
 
 .container{
-    /* background-color: #83ddf8; */
     margin-top: 4rem;
     background-color: #B0E0E6;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
     width: 100%;
-    max-width: 500px;
+    max-width: 800px;
     padding: 30px;
 }
 
@@ -34,9 +32,17 @@ body{
     margin-bottom: 20px;
 }
 
-input[type="text"], input[type="tel"], input[type="email"], input[type="password"]{
+.container h3{
+    text-align: center;
+    color: #003366;
+    font-size: 25px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+input[type="text"], input[type="tel"], input[type="email"], input[type="password"], input[type="date"]{
     color: rgb(90, 88, 88);
-    border:1px solid white;
+    border: 1px solid white;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 15px;
@@ -47,7 +53,7 @@ input[type="text"], input[type="tel"], input[type="email"], input[type="password
 
 select{
     color: rgb(90, 88, 88);
-    border:1px solid white;
+    border: 1px solid white;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 15px;
@@ -56,17 +62,10 @@ select{
     transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus, input[type="tel"]:focus,input[type="email"]:focus,input[type="password"]:focus, select:focus{
+input[type="text"]:focus, input[type="tel"]:focus, input[type="email"]:focus, 
+input[type="password"]:focus, input[type="date"]:focus, select:focus{
     outline: none;
     border-color: navy;
-}
-
-.container h3{
-    text-align: center;
-    color: #003366;
-    font-size: 25px;
-    margin-bottom: 20px;
-    margin-top: 15px;
 }
 
 button{
@@ -75,7 +74,6 @@ button{
     padding: 10px;
     border: none;
     color: white;
-    /* background-color: blue; */
     font-size: 16px;
     background-color: #003366;
     border-radius: 4px;
@@ -84,7 +82,6 @@ button{
 }
 
 button:hover{
-    /* background-color: rgb(9, 9, 131); */
     background-color: #002244;
 }
 
@@ -101,4 +98,171 @@ button:hover{
 
 .download-link a:hover{
     color: #2196F3;
+}
+
+.payment-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 5px;
+    padding: 15px;
+    width: 30%;
+    text-align: center;
+}
+
+.stat-title {
+    font-size: 14px;
+    color: #003366;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #003366;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.action-buttons button {
+    width: 50%;
+}
+
+.filter-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-section select, .filter-section input {
+    width: 50%;
+    margin-bottom: 0;
+}
+
+.payment-records {
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #003366;
+    color: white;
+}
+
+.status-paid {
+    color: green;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: orange;
+    font-weight: bold;
+}
+
+.status-overdue {
+    color: red;
+    font-weight: bold;
+}
+
+.action-btn {
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.action-btn:hover {
+    background-color: #002244;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #B0E0E6;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close-btn {
+    color: #003366;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #002244;
+}
+
+@media (max-width: 768px) {
+    .payment-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .stat-box {
+        width: 100%;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .action-buttons button {
+        width: 100%;
+    }
+    
+    .filter-section {
+        flex-direction: column;
+    }
+    
+    .filter-section select, .filter-section input {
+        width: 100%;
+    }
+    
+    th, td {
+        padding: 8px 5px;
+        font-size: 14px;
+    }
 }
