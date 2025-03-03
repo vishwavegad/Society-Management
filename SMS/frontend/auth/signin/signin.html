@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
-    <link rel="stylesheet" href="../css/signin.css">
+    <link rel="stylesheet" href="./signin.css">
 </head>
 <body>
     <div class="registration">
@@ -25,11 +25,11 @@
                     <!-- <textarea name="textarea" id="text" placeholder="Phone Number/Email-Id"></textarea> -->
                 </div>
                 <div class="password animate-item">
-                    <input type="password" name="password" id="pass" placeholder="Enter Password">
+                    <input type="password" name="password" id="password" placeholder="Enter Password">
                     <!-- <textarea name="password" id="pass" placeholder="Password"></textarea> -->
                 </div>
                 <div class="password animate-item">
-                    <input type="password" name="password" id="pass" placeholder="Confirm Password">
+                    <input type="password" name="password" id="passwordConfirm" placeholder="Confirm Password">
                     <!-- <textarea name="password" id="pass" placeholder="Password"></textarea> -->
                 </div>
                 <div class="select animate-item">
@@ -43,12 +43,14 @@
                     </select>
                 </div>  
                 <div class="button animate-item">
-                    <a href="../html/login.html"><button>Sign In</button></a>
+                    <!-- <a href="../login/login.html"> -->
+                        <button id="signInBtn">Sign In</button>
+                    <!-- </a> -->
                 </div>
             </div>
         </div>
     </div>
-    <script src="../js/signin.js">
+    <script src="./signin.js">
     </script>
 </body>
 </html>
