@@ -46,6 +46,34 @@ header {
     font-size: 24px;
 }
 
+.role-selection{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.role-selection label{
+    color: #003366;
+    margin-right: 10px;
+}
+
+#user-role{
+    padding: 3px 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+    color: rgb(91, 91, 91);
+}
+
+select:focus{
+    border: 2px solid #003366;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1)
+    /* border-color: #003366; 
+    border: 2px solid #003366; */
+}
+
 .email,
 .password {
     margin-bottom: 15px;

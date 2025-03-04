@@ -16,6 +16,7 @@
         
         <div class="signin">
             <h1 class="animate-item">Sign In</h1>
+
             <div class="info">
                 <div class="username animate-item">
                     <input type="text" placeholder="Create a unique Username">
@@ -32,11 +33,20 @@
                     <input type="password" name="password" id="passwordConfirm" placeholder="Confirm Password">
                     <!-- <textarea name="password" id="pass" placeholder="Password"></textarea> -->
                 </div>
+
+                <div class="role-selection animate-item">
+                    <label for="user-role">Register as: </label>
+                    <select id="user-role">
+                        <option value="member" selected>Member</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+
                 <div class="select animate-item">
                     <!-- <p>Select your society name</p> -->
                     <label for="society-names">Select Your society name</label>
                     <select name="society-names" id="society-names">
-                        <option hidden>Select or Search</option>
+                        <option hidden>Select</option>
                         <option value="Sai Darshan">Sai Darshan</option>
                         <option value="Shilpan Nova">Shilpan Nova</option>
                         <option value="Rangoli Belezza">Rangoli Belleza</option>

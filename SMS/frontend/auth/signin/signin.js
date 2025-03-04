@@ -17,14 +17,12 @@ window.onload = function () {
 
     const username = document.querySelector(".username input").value.trim();
     const email = document.querySelector(".number input").value.trim();
-    // const passwordFields = document.querySelectorAll(".password input");
-    const password = document
-      .querySelectorAll(".password input")[0]
-      .value.trim();
-    const confirmPassword = document
-      .querySelectorAll(".password input")[1]
-      .value.trim();
+    const password = document.querySelectorAll(".password input")[0].value.trim();
+    const confirmPassword = document.querySelectorAll(".password input")[1].value.trim();
     const societyName = document.querySelector("#society-names").value;
+    const roleSelect = document.getElementById("user-role");
+
+    const role = roleSelect.value;
 
     if (!username || !email || !password || !confirmPassword || !societyName) {
       alert("All fields are required!");
@@ -36,7 +34,7 @@ window.onload = function () {
       return;
     }
 
-    const userData = { username, email, password, societyName };
+    const userData = { username, email, password, societyName, role };
 
     try {
       const response = await fetch("http://localhost:3000/auth/signup", {
@@ -52,7 +50,7 @@ window.onload = function () {
         alert("Signup successful! Redirecting to login...");
         window.location.href = "../login/login.html";
       } else {
-        alert(data.message);
+        alert(data.message || "Sign-Up failed");
       }
     } catch (error) {
       console.error("Error:", error);
