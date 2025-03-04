@@ -32,11 +32,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  // const loadPage = (btn, url) => {
+  //   resetButtons();
+  //   btn.classList.add("active");
+  //   // btn.style.backgroundColor = "#002244";
+  //   rightContent.innerHTML = "";
+  //   fetch(url)
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Page not found");
+  //       }
+  //       return response.text();
+  //     })
+  //     .then((data) => {
+  //       console.log("Fetched data: ", data);
+  //       rightContent.innerHTML = data;
+  //       // addButtonEventListeners();
+  //     })
+  //     .catch((error) => {
+  //       rightContent.innerHTML = "<p>Sorry the page could not be loaded</p>";
+  //       console.log("Error loading the page: ", error);
+  //     });
+  // };
+
   const loadPage = (btn, url) => {
     resetButtons();
     btn.classList.add("active");
-    // btn.style.backgroundColor = "#002244";
     rightContent.innerHTML = "";
+
     fetch(url)
       .then((response) => {
         if (!response.ok) {
@@ -47,10 +70,14 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((data) => {
         console.log("Fetched data: ", data);
         rightContent.innerHTML = data;
-        // addButtonEventListeners();
+
+        // Call this function to add event listeners after loading announcement page
+        if (url.includes("announcement.html")) {
+          attachAnnouncementEventListeners();
+        }
       })
       .catch((error) => {
-        rightContent.innerHTML = "<p>Sorry the page could not be loaded</p>";
+        rightContent.innerHTML = "<p>Sorry, the page could not be loaded</p>";
         console.log("Error loading the page: ", error);
       });
   };
@@ -68,6 +95,21 @@ document.addEventListener("DOMContentLoaded", () => {
       loadPage(announcementBtn, "../announcement/announcement.html");
     });
   }
+
+  const attachAnnouncementEventListeners = () => {
+    const addButton = document.getElementById("add-button");
+    const announcementContainer = document.getElementById(
+      "announcement-text-container"
+    );
+
+    if (addButton && announcementContainer) {
+      addButton.addEventListener("click", () => {
+        console.log("Add Announcement button clicked!"); // Debugging
+        announcementContainer.style.display = "block"; // Show the announcement text container
+        announcementContainer.classList.add("active"); // Add animation
+      });
+    }
+  };
 
   if (amenitiesBtn) {
     amenitiesBtn.addEventListener("click", () => {

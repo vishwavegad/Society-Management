@@ -136,6 +136,32 @@ h2 {
     background-color: #002244;
 }
 
+/* Ensure inputs and textareas inside right-content are aligned in a column */
+#right-content form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px; /* Adds space between fields */
+    max-width: 600px; /* Prevents stretching */
+    margin: auto;
+}
+
+/* Style input and textarea fields */
+#right-content input{
+    width: 90%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Make textarea taller */
+#right-content textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
 /* Responsive design */
 @media screen and (max-width: 768px) {
     .split {
