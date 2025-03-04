@@ -50,16 +50,37 @@ document.addEventListener("DOMContentLoaded", () => {
       card.style.display = text.includes(filter) ? "block" : "none";
     });
   });
+
   // document.querySelector('.announcement-list').prepend(searchInput);
+  // addBtn.addEventListener("click", () => {
+  //   console.log("clicked");
+  //   console.log(announcementTextContainer.classList);
+  //   announcementTextContainer.classList.add("active");
+  //   console.log(announcementTextContainer.classList);
+  //   announcementTextContainer.style.display = "flex" ? "none" : "flex";
+  //   // announcementTextArea.value = "";
+  //   // console.log("Clicked");
+  // });
+
   addBtn.addEventListener("click", () => {
-    console.log("clicked");
-    console.log(announcementTextContainer.classList);
-    announcementTextContainer.classList.add("active");
-    console.log(announcementTextContainer.classList);
-    announcementTextContainer.style.display = "flex" ? "none" : "flex";
-    // announcementTextArea.value = "";
-    // console.log("Clicked");
+    // console.log("clicked");
+    // console.log(announcementTextContainer.classList);
+    announcementTextContainer.classList.toggle("active");
+
+    // Toggle visibility correctly
+    if (
+      announcementTextContainer.style.display === "none" ||
+      announcementTextContainer.style.display === "" ||
+      announcementTextContainer.classList.contains("active")
+    ) {
+      announcementTextContainer.style.display = "flex";
+    } else {
+      announcementTextContainer.style.display = "none";
+    }
+
+    // console.log(announcementTextContainer.classList);
   });
+
   sendBtn.addEventListener("click", () => {
     // //condition for confirmation
     // if(announcementSubject.value.trim() || announcementTextArea.value.trim())
