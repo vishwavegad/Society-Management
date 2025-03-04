@@ -92,4 +92,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadPage(aboutsocietyBtn, defaultURL);
 });
-
