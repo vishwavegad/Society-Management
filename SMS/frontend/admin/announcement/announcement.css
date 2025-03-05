@@ -31,6 +31,10 @@ body {
   margin-bottom: 1.5rem;
   border: none;
 }
+.add-announcement{
+  /* padding-left: 200px; */
+}
+
 .add-announcement button:hover {
   background-color: #002244;
   cursor: pointer;
@@ -42,6 +46,14 @@ body {
   display: flex;
   flex-direction: column;
 }
+.announcement-text-container #announcement-subject{
+  display: flex;
+  flex-direction: column;
+  width: 68%;
+  padding: 15px;
+  border: none;
+  margin-left: 200px;
+}
 input {
   margin-bottom: 1.5rem;
   height: 1.5rem;
@@ -52,6 +64,7 @@ input {
   font-size: 1rem;
 }
 textarea {
+  margin-left: 200px;
   width: 50rem;
   height: 7rem;
   border-radius: 10px;
@@ -93,7 +106,21 @@ textarea {
   font-weight: 500;
   margin-bottom: 1.5rem;
   border: none;
+  /* margin-right: 5px; */
+  margin-left: 57.5rem;
 }
+
+.search-announcements{
+  margin-top: 20px;
+  margin-left: 30px;
+  width: 20%;
+  height: 50px;
+}
+
+/* .search-announcements input{
+  padding: 2000px;
+  font-size: xx-large;
+} */
 
 .announcement-text-container {
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -125,10 +152,6 @@ input::placeholder{
 
 textarea::placeholder{
     font-family: Helvetica, sans-serif;
-}
-
-.search-announcements{
-  margin-left: 30px;
 }
 
 /* .announcement-list {

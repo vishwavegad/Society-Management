@@ -2,15 +2,16 @@ const Complaints = require("../models/complaints_model");
 
 async function createComplaint(req, res) {
   try {
-    const { username, email, complaint, flatNum, complaintType } = req.body;
+    const { username, email, contactNo, complaint, flatNum, complaintType } = req.body;
 
-    if (!username || !email || !complaint || !flatNum || !complaintType) {
+    if (!username || !email || !contactNo || !complaint || !flatNum || !complaintType) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
     const newComplaint = await Complaints.create({
       username,
       email,
+      contactNo,
       complaint,
       flatNum,
       complaintType
