@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             //creating a div for userPhoto
             const userPhoto = document.createElement("div");
             userPhoto.classList.add("user-photo");
-            feedbackCard.innerHTML = '<i class="fa-solid fa-user"></i>';
+            feedbackCard.innerHTML = '<i class="fa fa-user-circle"></i>';
 
             //creating a p tag for userText
             const userText = document.createElement("p");
