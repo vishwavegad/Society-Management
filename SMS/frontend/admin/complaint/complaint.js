@@ -1,34 +1,3 @@
-// Sample complaints data
-const complaints = [
-    {
-        id: "COMP001",
-        resident: "John Doe",
-        unit: "A-101",
-        date: "2025-01-25",
-        category: "Maintenance",
-        description: "Water leakage in bathroom",
-        status: "pending"
-    },
-    {
-        id: "COMP002",
-        resident: "Jane Smith",
-        unit: "B-205",
-        date: "2025-01-26",
-        category: "Security",
-        description: "Main gate intercom not working",
-        status: "inprogress"
-    },
-    {
-        id: "COMP003",
-        resident: "Mike Johnson",
-        unit: "C-304",
-        date: "2025-01-27",
-        category: "Noise",
-        description: "Loud construction noise after hours",
-        status: "resolved"
-    }
-];
-
 // DOM Elements
 const complaintsList = document.getElementById('complaintsList');
 const statusModal = document.getElementById('statusModal');
@@ -37,8 +6,25 @@ const statusSelect = document.getElementById('statusSelect');
 const saveStatus = document.getElementById('saveStatus');
 let currentComplaintId = null;
 
+let complaints = [];
+async function  fetchComplaints(){
+    try{
+        const response = await fetch("http://localhost:3000/api/complaints", {
+            method: "GET"
+        })
+        if(!response.ok){
+            throw new Error("Failed to fetch comaplaints");
+        }
+        complaints = await response.json();
+        renderComplaints(complaints);
+    } catch(error){
+        console.error("Error fetching complaints: ", error);
+        alert("Failed to load complaints.");
+    }
+}
+
 // Render complaints
-function renderComplaints() {
+function renderComplaints(complaints) {
     complaintsList.innerHTML = '';
     complaints.forEach(complaint => {
         const card = createComplaintCard(complaint);
@@ -52,19 +38,19 @@ function createComplaintCard(complaint) {
     card.className = 'complaint-card';
     card.innerHTML = `
         <div class="complaint-header">
-            <span class="complaint-id">${complaint.id}</span>
+            <span class="complaint-id">${complaint._id}</span>
             <span class="complaint-status status-${complaint.status}">${complaint.status.toUpperCase()}</span>
         </div>
         <div class="complaint-details">
-            <p class="complaint-info"><strong>Resident:</strong> ${complaint.resident}</p>
-            <p class="complaint-info"><strong>Unit:</strong> ${complaint.unit}</p>
-            <p class="complaint-info"><strong>Date:</strong> ${complaint.date}</p>
-            <p class="complaint-info"><strong>Category:</strong> ${complaint.category}</p>
-            <p class="complaint-info"><strong>Description:</strong> ${complaint.description}</p>
+            <p class="complaint-info"><strong>Resident:</strong> ${complaint.user?.name||"Unknown"}</p>
+            <p class="complaint-info"><strong>Unit:</strong> ${complaint.flatNum}</p>
+            <p class="complaint-info"><strong>Date:</strong> ${new Date(complaint.createdAt).toLocaleDateString()}</p>
+            <p class="complaint-info"><strong>Category:</strong> ${complaint.complaintType}</p>
+            <p class="complaint-info"><strong>Description:</strong> ${complaint.complaint}</p>
         </div>
         <div class="complaint-actions">
-            <button class="action-button update-status" onclick="openStatusModal('${complaint.id}')">Update Status</button>
-            <button class="action-button delete-complaint" onclick="deleteComplaint('${complaint.id}')">Delete</button>
+            <button class="action-button update-status" onclick="openStatusModal('${complaint._id}', '${complaint.status}')">Update Status</button>
+            <button class="action-button delete-complaint" onclick="deleteComplaint('${complaint._id}')">Delete</button>
         </div>
     `;
     return card;
@@ -73,7 +59,13 @@ function createComplaintCard(complaint) {
 // Open status modal
 function openStatusModal(complaintId) {
     currentComplaintId = complaintId;
-    const complaint = complaints.find(c => c.id === complaintId);
+    const complaint = complaints.find(c => c._id === complaintId);
+    if(!complaint){
+        alert("Complaint not found");
+        console.error("Complaint ID not found in array:", complaintId, complaints);
+
+        return;
+    }
     statusSelect.value = complaint.status;
     statusModal.style.display = 'flex';
 }
@@ -85,23 +77,57 @@ function closeStatusModal() {
 }
 
 // Update complaint status
-function updateComplaintStatus() {
-    if (currentComplaintId) {
-        const complaint = complaints.find(c => c.id === currentComplaintId);
-        complaint.status = statusSelect.value;
-        renderComplaints();
-        closeStatusModal();
+async function updateComplaintStatus() {
+    if (!currentComplaintId) {
+        console.error("No complaint ID found");
+        alert("Error: No complaint selected.");
+        return;
     }
+    const newStatus = statusSelect.value.trim();
+    console.log("Selected status:", statusSelect.value);
+
+    console.log("Updating status Id: ", currentComplaintId, "with status: ", newStatus);
+    try{
+        const response = await fetch(`http://localhost:3000/api/complaints/${currentComplaintId}/status`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({status: newStatus})
+        })
+        if(!response.ok){
+            const errorData = await response.json();
+            console.error("Server response: ", errorData);
+            throw new Error("Failed to update status");
+        }
+        alert("Complaint status updated successfully");
+        closeStatusModal();
+        fetchComplaints();
+    } catch(error){
+        console.error("Error updating status: ", error);
+        alert("Failed to update complaint status.");
+    }   
 }
 
 // Delete complaint
-function deleteComplaint(complaintId) {
-    if (confirm('Are you sure you want to delete this complaint?')) {
-        const index = complaints.findIndex(c => c.id === complaintId);
-        if (index !== -1) {
-            complaints.splice(index, 1);
-            renderComplaints();
+async function deleteComplaint(complaintId) {
+    if (!confirm('Are you sure you want to delete this complaint?')) {
+        return;
+    }
+    console.log("Deleting complaint with ID:", complaintId);
+
+    try{
+        const response = await fetch(`http://localhost:3000/api/complaints/${complaintId}`, {
+            method: "DELETE"
+        })
+        if(!response.ok){
+            throw new Error("Failed to delete complaint");
         }
+        alert("Complaint deleted successfully");
+        fetchComplaints();
+    } catch(error){
+        console.error("Error deleting complaint: ", error);
+        alert("Failed to delete complaint")
     }
 }
 
@@ -115,4 +141,4 @@ window.addEventListener('click', (event) => {
 });
 
 // Initial render
-renderComplaints();
+fetchComplaints();

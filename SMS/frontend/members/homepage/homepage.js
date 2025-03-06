@@ -49,12 +49,22 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Fetched data: ", data);
         rightContent.innerHTML = data;
         // addButtonEventListeners();
+        if(url.includes("complaint.html")){
+          loadScript("../complaint/complaint.js");
+        }
       })
       .catch((error) => {
         rightContent.innerHTML = "<p>Sorry the page could not be loaded</p>";
         console.log("Error loading the page: ", error);
       });
   };
+
+  function loadScript(scriptSrc){
+    const script = document.createElement("script");
+    script.src = scriptSrc;
+    script.onload = () => console.log(`${scriptSrc} loaded successfully`);
+    document.body.appendChild(script);
+  }
 
   if (aboutsocietyBtn) {
     aboutsocietyBtn.addEventListener("click", () => {
