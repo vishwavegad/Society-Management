@@ -14,17 +14,18 @@
         <input type="text" placeholder="Flat Number">
         <input type="tel" placeholder="Contact Number">
         
-        <select name="" id="">
-            <option value="">Select Category Of Complaint</option>
-            <option value="">Maintenance</option>
-            <option value="">Security</option>
-            <option value="">Noise Complaint</option>
-            <option value="">Cleanliness</option>
-            <option value="">Parking</option>
-            <option value="">Others</option>
+        <select id="select">
+            <option value="" disabled selected>Select Category Of Complaint</option>
+            <option value="Maintenance">Maintenance</option>
+            <option value="Security">Security</option>
+            <option value="Noise Complaint">Noise Complaint</option>
+            <option value="Cleanliness">Cleanliness</option>
+            <option value="Parking">Parking</option>
+            <option value="Others">Others</option>
         </select>
-        <textarea name="" id=""placeholder="Provide detailed description of your complaint"></textarea>
-        <button type="submit" class="btn">Submit Complaint</button>
+        <textarea placeholder="Provide detailed description of your complaint"></textarea>
+        <button type="button" class="btn">Submit Complaint</button>
     </div>
 </body>
+<script src="./complaint.js"></script>
 </html>
