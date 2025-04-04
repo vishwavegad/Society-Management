@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 const announcementsSchema = new mongoose.Schema({
-    title:{
+    subject:{
         type: String,
         required: true,
         trim: true
     },
-    description:{
+    message:{
         type: String,
         required: true,
         trim: true

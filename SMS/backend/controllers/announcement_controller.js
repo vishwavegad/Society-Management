@@ -11,11 +11,11 @@ async function getAllAnnouncements(req, res) {
 
 async function createNewAnnouncement(req, res) {
   try {
-    const { title, description } = req.body;
-    if (!title || !description) {
+    const { subject, message } = req.body;
+    if (!subject || !message) {
       return res.status(400).json({ error: "All fields are required" });
     }
-    const newAnnouncement = new Announcement({ title, description });
+    const newAnnouncement = new Announcement({ subject, message });
     await newAnnouncement.save();
 
     res
@@ -40,10 +40,10 @@ async function getAnnouncementById(req, res) {
 
 async function updateAnnouncement(req, res) {
   try {
-    const { title, description } = req.body;
+    const { subject, message } = req.body;
     const updatedAnnouncement = await Announcement.findByIdAndUpdate(
       req.params.id,
-      { title, description },
+      { subject, message },
       { new: true, runValidators: true }
     );
     if (!updatedAnnouncement) {

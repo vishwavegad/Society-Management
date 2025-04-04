@@ -18,7 +18,7 @@ const complaintsSchema = new mongoose.Schema({
         lowercase: true,
     },
     flatNum: {
-        type: Number,
+        type: String,
         required: true,
     },
     contactNo: {
