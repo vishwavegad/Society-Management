@@ -42,7 +42,7 @@ function createComplaintCard(complaint) {
             <span class="complaint-status status-${complaint.status}">${complaint.status.toUpperCase()}</span>
         </div>
         <div class="complaint-details">
-            <p class="complaint-info"><strong>Resident:</strong> ${complaint.user?.name||"Unknown"}</p>
+            <p class="complaint-info"><strong>Resident:</strong> ${complaint.username||"Unknown"}</p>
             <p class="complaint-info"><strong>Unit:</strong> ${complaint.flatNum}</p>
             <p class="complaint-info"><strong>Date:</strong> ${new Date(complaint.createdAt).toLocaleDateString()}</p>
             <p class="complaint-info"><strong>Category:</strong> ${complaint.complaintType}</p>
