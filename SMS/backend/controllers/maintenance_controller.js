@@ -46,7 +46,6 @@ async function getPaymentById(req, res) {
   }
 }
 
-// GET /api/payments/flat/:flatNum
 async function getPaymentByFlat(req, res) {
   try {
     const records = await Maintenance.find({ flatNum: req.params.flatNum });

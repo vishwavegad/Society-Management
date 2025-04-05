@@ -1,4 +1,3 @@
-// Elements
 const paymentTable = document.getElementById("payment-list");
 const filterStatus = document.getElementById("filter-status");
 const searchUnit = document.getElementById("search-unit");
@@ -11,7 +10,6 @@ const downloadCsvBtn = document.getElementById("download-csv");
 
 let paymentData = [];
 
-// Init
 document.addEventListener("DOMContentLoaded", function () {
   loadPayments();
   filterStatus.addEventListener("change", filterPayments);
