@@ -3,16 +3,12 @@ const mongoose = require("mongoose");
 const maintainanceSchema = new mongoose.Schema(
   {
     name: {
-      // type: mongoose.Schema.Types.ObjectId,
       type: String,
-      // ref: "User",
       required: true,
       trim: true,
     },
     email: {
-      // type: mongoose.Schema.Types.ObjectId,
       type: String,
-      // ref: "User",
       required: true,
       unique: true,
       lowercase: true,
@@ -44,7 +40,6 @@ const maintainanceSchema = new mongoose.Schema(
     paymentStatus: {
       type: String,
       enum: ["Pending", "Completed", "Failed"],
-      // default: "Pending"
     },
     timestamp: {
       type: Date,
