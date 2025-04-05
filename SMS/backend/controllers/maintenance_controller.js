@@ -21,16 +21,14 @@ async function createNewPayment(req, res) {
       pin,
       flatNum,
       transactionId,
-      paymentStatus: "pending",
+      paymentStatus: "Pending",
     });
     await newPayment.save();
-    res
-      .status(201)
-      .json({
-        success: true,
-        msg: "Payment initiated successfully",
-        newPayment,
-      });
+    res.status(201).json({
+      success: true,
+      msg: "Payment initiated successfully",
+      newPayment,
+    });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
@@ -43,6 +41,16 @@ async function getPaymentById(req, res) {
       res.status(404).json({ error: "Maintenance not paid" });
     }
     res.status(200).json(maintenance);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+// GET /api/payments/flat/:flatNum
+async function getPaymentByFlat(req, res) {
+  try {
+    const records = await Maintenance.find({ flatNum: req.params.flatNum });
+    res.status(200).json(records);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -67,4 +75,10 @@ async function updatePaymentStatus(req, res) {
   }
 }
 
-module.exports = { getAllPayments, createNewPayment, getPaymentById, updatePaymentStatus };
+module.exports = {
+  getAllPayments,
+  createNewPayment,
+  getPaymentById,
+  getPaymentByFlat,
+  updatePaymentStatus,
+};
