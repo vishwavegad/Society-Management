@@ -4,16 +4,15 @@ const {
   getAllPayments,
   createNewPayment,
   getPaymentById,
-  updatePaymentStatus
+  getPaymentByFlat,
+  updatePaymentStatus,
 } = require("../controllers/maintenance_controller");
 const router = express.Router();
 
-router.route("/")
-  .get(getAllPayments)
-  .post(createNewPayment);
+router.route("/").get(getAllPayments).post(createNewPayment);
 
-router.route("/:id")
-  .get(getPaymentById)
-  .put(updatePaymentStatus);
+router.route("/:id").get(getPaymentById).put(updatePaymentStatus);
+
+router.route("/flat/:flatId").get(getPaymentByFlat);
 
 module.exports = router;
