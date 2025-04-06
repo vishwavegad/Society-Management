@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Log</title>
+    <link rel="stylesheet" href="visitorsLog.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Visitor Log</h2>
+        <form id="visitorForm">
+            <input type="text" id="visitorName" placeholder="Visitor Name" required>
+            <input type="number" id="visitorContact" placeholder="Contact Number" required>
+            <input type="number" id="flatNum" placeholder="Flat Number" required>
+            
+            <select id="visitorType" required>
+                <option value="">Select Visitor Type</option>
+                <option value="Delivery">Delivery</option>
+                <option value="Guest">Guest</option>
+                <option value="Service Provider">Service Provider</option>
+            </select>
+
+            <input type="datetime-local" id="visitorEntryTime" value="" required>
+
+            <button type="submit">Add Visitor</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Flat</th>
+                    <th>Type</th>
+                    <th>Entry Time</th>
+                    <th>Exit Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="visitorTable">
+                <!-- Rows will be populated here -->
+            </tbody>
+        </table>
+    </div>
+    <script src="visitorsLog.js"></script>
+</body>
+</html>

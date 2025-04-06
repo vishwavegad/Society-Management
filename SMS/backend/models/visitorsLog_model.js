@@ -1,39 +1,44 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const visitorLogSchema = new mongoose.Schema({
+const visitorLogSchema = new mongoose.Schema(
+  {
     visitorName: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     visitorContact: {
-        type: Number,
-        required: true,
+      type: Number,
+      required: true,
     },
     flatNum: {
-        type: Number,
-        required: true,
+      type: Number,
+      required: true,
     },
     visitorType: {
-        type: String,
-        required: true,
-        enum: ["Delivery", "Guest", "Service Provider"],
+      type: String,
+      required: true,
+      enum: ["Delivery", "Guest", "Service Provider"],
     },
-    visitorVehicleNum: {
-        type: String,
-        required: true,
-    },
+    // visitorVehicleNum: {
+    //     type: String,
+    //     required: true,
+    // },
     visitorEntryTime: {
-        type: Date,
-        default: Date.now,
+      type: Date,
+      default: Date.now,
     },
     visitorExitTime: {
-        type: Date,
+      type: Date,
     },
     visitorExitStatus: {
-        type: String,
-        enum: ["Exited", "Not Exited"],
-        default: "Not Exited",
-    }
-}, { timestamps: true });
+      type: String,
+      enum: ["Exited", "Not Exited"],
+      default: "Not Exited",
+    },
+  },
+  { timestamps: true }
+);
 
-export const VisitorLog = mongoose.model('VisitorLog', visitorLogSchema);
+const visitorsLog = mongoose.model("visitorsLog", visitorLogSchema);
+
+module.exports = visitorsLog;
