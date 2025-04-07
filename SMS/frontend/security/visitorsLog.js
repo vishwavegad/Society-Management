@@ -35,9 +35,49 @@ function renderVisitors(visitors) {
       <td>${entryTime}</td>
       <td>${exitTime}</td>
       <td>${v.visitorExitStatus || "Not Exited"}</td>
+      <td>
+        ${
+          !v.visitorExitTime
+            ? `<button class="exit-btn" data-id="${v._id}">Mark Exit</button>`
+            : "--"
+        }
+      </td>
     `;
 
     table.appendChild(tr);
+  });
+
+  // Add event listeners to all "Mark Exit" buttons
+  const exitButtons = document.querySelectorAll(".exit-btn");
+  exitButtons.forEach((button) => {
+    button.addEventListener("click", async () => {
+      const visitorId = button.getAttribute("data-id");
+
+      try {
+        const exitTime = new Date().toISOString();
+        const response = await fetch(`${API_BASE}/${visitorId}/exit`, {
+          method: "PATCH", // or PUT depending on your backend
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            visitorExitTime: exitTime,
+            visitorExitStatus: "Exited",
+          }),
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          alert("Visitor marked as exited.");
+          loadVisitors(); // Refresh table
+        } else {
+          alert(result.message || "Failed to mark exit.");
+        }
+      } catch (err) {
+        console.error("Exit error:", err);
+        alert("Something went wrong while marking exit.");
+      }
+    });
   });
 }
 

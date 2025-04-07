@@ -26,22 +26,26 @@
             <button type="submit">Add Visitor</button>
         </form>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Contact</th>
-                    <th>Flat</th>
-                    <th>Type</th>
-                    <th>Entry Time</th>
-                    <th>Exit Time</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody id="visitorTable">
-                <!-- Rows will be populated here -->
-            </tbody>
-        </table>
+        <div class="table-container">
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Contact</th>
+                        <th>Flat</th>
+                        <th>Type</th>
+                        <th>Entry Time</th>
+                        <th>Exit Time</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="visitorTable">
+                    <!-- JavaScript will populate rows -->
+                </tbody>
+            </table>
+        </div>
+        
     </div>
     <script src="visitorsLog.js"></script>
 </body>
