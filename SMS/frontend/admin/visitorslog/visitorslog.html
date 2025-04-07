@@ -13,7 +13,7 @@
             background-color: #f2f4f5; /* Overall background color */
         }
         .container {
-            width: 50%;
+            width: 40%;
             margin: 100px auto;
             background: #b0e0e6; /* Box background color */
             padding: 40px;
@@ -43,7 +43,7 @@
         }
         table {
             width: 100%;
-            margin-top: 20px;
+            margin-top: 30px;
             border-collapse: collapse;
         }
         th, td {
@@ -52,7 +52,7 @@
             text-align: center;
         }
         th {
-            background-color: #28a745;
+            background-color: #003366;
             color: white;
         }
     </style>
@@ -64,8 +64,12 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Purpose</th>
-                    <th>Time</th>
+                    <th>Contact</th>
+                    <th>Flat</th>
+                    <th>Type</th>
+                    <th>Entry Time</th>
+                    <th>Exit Time</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody id="visitorTable">
@@ -76,13 +80,20 @@
         document.getElementById("visitorForm").addEventListener("submit", function(event) {
             event.preventDefault();
             let name = document.getElementById("name").value;
-            let purpose = document.getElementById("purpose").value;
-            let time = document.getElementById("time").value;
-            let table = document.getElementById("visitorTable");
+            let contact = document.getElementById("contact").value;
+            let flat = document.getElementById("flat").value;
+            let type = document.getElementById("type");
+            let entrytime = document.getElementById("entrytime");
+            let exittime = document.getElementById("exittime");
+            let status = document.getElementById("status");
             let row = table.insertRow();
             row.insertCell(0).textContent = name;
-            row.insertCell(1).textContent = purpose;
-            row.insertCell(2).textContent = time;
+            row.insertCell(1).textContent = contact;
+            row.insertCell(3).textContent = flat;
+            row.insertCell(4).textContent = type;
+            row.insertCell(5).textContent = entrytime;
+            row.insertCell(6).textContent = exittime;
+            row.insertCell(7).textContent = status;
             document.getElementById("visitorForm").reset();
         });
     </script>
