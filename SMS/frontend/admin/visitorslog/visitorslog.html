@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Log</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f4f5; /* Overall background color */
+        }
+        .container {
+            width: 50%;
+            margin: 100px auto;
+            background: #b0e0e6; /* Box background color */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        }   
+        h2 {
+            color: #000080; /* Heading color */
+            text-align: center; /* Center-align headings */
+        } 
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #003366;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Visitor Log</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Purpose</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody id="visitorTable">
+            </tbody>
+        </table>
+    </div>
+    <script>
+        document.getElementById("visitorForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value;
+            let purpose = document.getElementById("purpose").value;
+            let time = document.getElementById("time").value;
+            let table = document.getElementById("visitorTable");
+            let row = table.insertRow();
+            row.insertCell(0).textContent = name;
+            row.insertCell(1).textContent = purpose;
+            row.insertCell(2).textContent = time;
+            document.getElementById("visitorForm").reset();
+        });
+    </script>
+</body>
+</html>
