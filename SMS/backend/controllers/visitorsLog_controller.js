@@ -63,18 +63,22 @@ async function getVisitorById(req, res) {
 // Update visitor exit time and status
 async function markVisitorExit(req, res) {
   try {
-    const visitor = await visitorLog.findById(req.params.id);
-    if (!visitor) {
+    const updatedVisitor = await visitorLog.findByIdAndUpdate(
+      req.params.id,
+      {
+        visitorExitTime: req.body.visitorExitTime,
+        visitorExitStatus: req.body.visitorExitStatus,
+      },
+      { new: true }
+    );
+
+    if (!updatedVisitor) {
       return res.status(404).json({ message: "Visitor not found" });
     }
 
-    visitor.visitorExitTime = new Date();
-    visitor.visitorExitStatus = "Exited";
-    await visitor.save();
-
-    res.status(200).json({ message: "Visitor marked as exited", visitor });
+    res.json(updatedVisitor);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ message: "Failed to mark visitor exit", error });
   }
 }
 
