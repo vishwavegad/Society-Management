@@ -4,62 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visitor Log</title>
-    <style>
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f2f4f5; /* Overall background color */
-        }
-        .container {
-            width: 40%;
-            margin: 100px auto;
-            background: #b0e0e6; /* Box background color */
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-        }   
-        h2 {
-            color: #000080; /* Heading color */
-            text-align: center; /* Center-align headings */
-        } 
-        input, button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            background-color: #003366;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-        table {
-            width: 100%;
-            margin-top: 30px;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-        th {
-            background-color: #003366;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="visitorslog.css">
 </head>
 <body>
     <div class="container">
         <h2>Visitor Log</h2>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search by name">
+            <button id="searchBtn">Search</button>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -76,26 +29,6 @@
             </tbody>
         </table>
     </div>
-    <script>
-        document.getElementById("visitorForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            let name = document.getElementById("name").value;
-            let contact = document.getElementById("contact").value;
-            let flat = document.getElementById("flat").value;
-            let type = document.getElementById("type");
-            let entrytime = document.getElementById("entrytime");
-            let exittime = document.getElementById("exittime");
-            let status = document.getElementById("status");
-            let row = table.insertRow();
-            row.insertCell(0).textContent = name;
-            row.insertCell(1).textContent = contact;
-            row.insertCell(3).textContent = flat;
-            row.insertCell(4).textContent = type;
-            row.insertCell(5).textContent = entrytime;
-            row.insertCell(6).textContent = exittime;
-            row.insertCell(7).textContent = status;
-            document.getElementById("visitorForm").reset();
-        });
-    </script>
+    <script src="visitorslog.js"></script>
 </body>
 </html>

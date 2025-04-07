@@ -12,7 +12,7 @@
         <form id="visitorForm">
             <input type="text" id="visitorName" placeholder="Visitor Name" required>
             <input type="number" id="visitorContact" placeholder="Contact Number" required>
-            <input type="number" id="flatNum" placeholder="Flat Number" required>
+            <input type="text" id="flatNum" placeholder="Flat Number" required>
             
             <select id="visitorType" required>
                 <option value="">Select Visitor Type</option>
@@ -23,9 +23,12 @@
 
             <input type="datetime-local" id="visitorEntryTime" value="" required>
 
-            <button type="submit">Add Visitor</button>
+            <button id="addVisitorBtn" type="submit">Add Visitor</button>
         </form>
-
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search by name">
+            <button id="searchBtn">Search</button>
+        </div>
         <div class="table-container">
             <table class="styled-table">
                 <thead>

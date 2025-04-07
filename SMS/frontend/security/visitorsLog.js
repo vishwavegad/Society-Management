@@ -3,6 +3,8 @@ const tableBody = document.getElementById("visitorTable");
 
 const API_BASE = "http://localhost:3000/api/visitorsLog"; // Adjust if needed
 
+let allVisitors = [];
+
 document.addEventListener("DOMContentLoaded", () => {
   const now = new Date();
   const localNow = new Date(now.getTime() - now.getTimezoneOffset() * 60000)
@@ -19,21 +21,21 @@ function renderVisitors(visitors) {
 
   visitors.forEach((v) => {
     const tr = document.createElement("tr");
+    const entryTime = v.visitorEntryTime || null;
+    const exitTime = v.visitorExitTime || null;
 
-    const entryTime = v.visitorEntryTime
-      ? new Date(v.visitorEntryTime).toLocaleString()
-      : "--";
-    const exitTime = v.visitorExitTime
-      ? new Date(v.visitorExitTime).toLocaleString()
-      : "--";
 
     tr.innerHTML = `
       <td>${v.visitorName}</td>
       <td>${v.visitorContact}</td>
       <td>${v.flatNum}</td>
       <td>${v.visitorType}</td>
-      <td>${entryTime}</td>
-      <td>${exitTime}</td>
+      <td>${formatDateTime(entryTime)}</td>
+      <td>${
+        !exitTime
+          ? "--"
+          : formatDateTime(exitTime)
+      }</td>
       <td>${v.visitorExitStatus || "Not Exited"}</td>
       <td>
         ${
@@ -47,7 +49,29 @@ function renderVisitors(visitors) {
     table.appendChild(tr);
   });
 
-  // Add event listeners to all "Mark Exit" buttons
+  searchBtn.addEventListener("click", ()=>{
+    const query = searchInput.value.toLowerCase();
+    const filtered = allVisitors.filter(v=>v.visitorName.toLowerCase().includes(query));
+    renderVisitors(filtered);
+})
+
+  function formatDateTime(dateString)
+    {
+        if(!dateString)
+        {
+            return "--";
+        }
+        const date = new Date(dateString);
+        return date.toLocaleString("en-IN", {
+            day:"2-digit",
+            month:"short",
+            year:"numeric",
+            hour:"2-digit",
+            minute:"2-digit",
+            hour12:true
+        })
+    }
+
   const exitButtons = document.querySelectorAll(".exit-btn");
   exitButtons.forEach((button) => {
     button.addEventListener("click", async () => {
@@ -56,7 +80,7 @@ function renderVisitors(visitors) {
       try {
         const exitTime = new Date().toISOString();
         const response = await fetch(`${API_BASE}/${visitorId}/exit`, {
-          method: "PATCH", // or PUT depending on your backend
+          method: "PATCH",
           headers: {
             "Content-Type": "application/json",
           },
@@ -69,7 +93,7 @@ function renderVisitors(visitors) {
         const result = await response.json();
         if (response.ok) {
           alert("Visitor marked as exited.");
-          loadVisitors(); // Refresh table
+          loadVisitors();
         } else {
           alert(result.message || "Failed to mark exit.");
         }
@@ -84,8 +108,8 @@ function renderVisitors(visitors) {
 async function loadVisitors() {
   try {
     const response = await fetch(API_BASE);
-    const data = await response.json();
-    renderVisitors(data);
+    allVisitors = await response.json();
+    renderVisitors(allVisitors);
   } catch (error) {
     console.error("Failed to load visitors:", error);
   }
