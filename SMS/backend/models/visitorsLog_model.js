@@ -11,7 +11,7 @@ const visitorLogSchema = new mongoose.Schema(
       required: true,
     },
     flatNum: {
-      type: Number,
+      type: String,
       required: true,
     },
     visitorType: {
