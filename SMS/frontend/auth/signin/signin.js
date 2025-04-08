@@ -22,7 +22,7 @@ window.onload = function () {
     const societyName = document.querySelector("#society-names").value;
     const roleSelect = document.getElementById("user-role");
 
-    const role = roleSelect.value;
+    const role = roleSelect.value.toLowerCase();
 
     if (!username || !email || !password || !confirmPassword || !societyName) {
       alert("All fields are required!");

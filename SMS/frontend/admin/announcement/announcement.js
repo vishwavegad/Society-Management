@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+(async function (){
   const addBtn = document.getElementById("add-button");
   console.log(addBtn);
   const announcementTextContainer = document.getElementById("announcement-text-container");
@@ -165,4 +165,4 @@ document.addEventListener("DOMContentLoaded", () => {
     saveData();
     updateCharCount();
   });
-});
+})();

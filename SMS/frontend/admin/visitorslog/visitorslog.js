@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async()=>{
+(async function(){
     console.log("DOM fully loaded"); 
     const visitorTable = document.getElementById("visitorTable");
     console.log("Found table:", visitorTable);
@@ -69,4 +69,4 @@ document.addEventListener("DOMContentLoaded", async()=>{
             hour12:true
         })
     }
-})
+})();

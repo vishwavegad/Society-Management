@@ -1,4 +1,4 @@
-// DOM Elements
+(async function (){
 const complaintsList = document.getElementById('complaintsList');
 const statusModal = document.getElementById('statusModal');
 const closeModal = document.getElementById('closeModal');
@@ -142,3 +142,4 @@ window.addEventListener('click', (event) => {
 
 // Initial render
 fetchComplaints();
+})();
