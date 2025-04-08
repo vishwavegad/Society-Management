@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Society Amenities Booking</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #d2e6e9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      overflow: auto;
+    }
+
+    .container {
+      background-color: #B0E0E6;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 600px;
+      padding: 30px;
+      margin-top: 4rem;
+    }
+
+    .container h2 {
+      text-align: center;
+      color: #003366;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="date"],
+    input[type="number"],
+    select {
+      color: rgb(90, 88, 88);
+      border: 1px solid white;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      width: 100%;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: navy;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border: none;
+      color: white;
+      font-size: 16px;
+      background-color: #003366;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #002244;
+    }
+
+    label {
+    
+      font-size: 15px;
+      color: #003366;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .row {
+      margin-top: 1px;  
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    .row select,
+    .row input {
+      flex: 1;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Amenities Booking Form</h2>
+    <form>
+      <input type="text" placeholder="Name" required />
+      <input type="tel" placeholder="Contact Number" required />
+      <input type="text" placeholder="Flat Number" required />
+      
+      
+      <!-- Amenity Dropdown -->
+      <select id="amenity" onchange="toggleFunctionInput()" required>
+        <option value="" disabled selected hidden>Select Amenity</option>
+        <option value="Clubhouse">Clubhouse</option>
+        <option value="Gym">Gym</option>
+        <option value="Swimming Pool">Swimming Pool</option>
+        <option value="Garden Area">Garden Area</option>
+        <option value="Banquet Hall">Banquet Hall</option>
+        <option value="Games Room">Indoor Games Room</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <!-- Show only if "Other" is selected -->
+      <input type="text" id="functionInput" class="hidden" placeholder="Enter Function Name (e.g., Holi)" />
+
+      <input type="date" required />
+      <input type="text" placeholder="Time Slot (e.g., 5 PM to 7 PM)" required />
+      <input type="number" placeholder="Number of Guests" min="0" />
+
+    
+
+      <!-- Time Duration & Payment (1 row) -->
+      <div class="row">
+        <select id="duration" onchange="calculatePayment()" required>
+          <option value="" disabled selected hidden>Duration (hours)</option>
+          <option value="1">1 Hour</option>
+          <option value="2">2 Hours</option>
+          <option value="3">3 Hours</option>
+
+          <option value="4">4 Hours</option>
+        </select>
+
+        <input type="text" id="payment" placeholder="₹0" readonly />
+      </div>
+        <!-- Checkboxes -->
+        <label><input type="checkbox" required /> I agree to the rules and conditions.</label><br />
+        <label><input type="checkbox" required /> I accept responsibility for any damages.</label><br />
+        <label><input type="checkbox" required /> I will minimize noise/disturbance.</label><br />
+
+      <!-- Final Button -->
+      <button type="submit">Make a Payment</button>
+    </form>
+  </div>
+
+  <script>
+    function toggleFunctionInput() {
+      const amenity = document.getElementById("amenity").value;
+      const functionInput = document.getElementById("functionInput");
+      functionInput.classList.toggle("hidden", amenity !== "Other");
+    }
+
+    function calculatePayment() {
+      const duration = document.getElementById("duration").value;
+      const ratePerHour = 100; // ₹100/hour
+      const payment = duration ? duration * ratePerHour : 0;
+      document.getElementById("payment").value = `₹${payment}`;
+    }
+  </script>
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
