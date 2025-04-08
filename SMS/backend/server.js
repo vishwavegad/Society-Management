@@ -7,6 +7,8 @@ const announcementRouter = require("./routes/announcement_route");
 const maintenanceRouter = require("./routes/maintenance_route");
 const complaintRouter = require("./routes/complaint_route");
 const visitorRouter = require("./routes/visitorsLog_route");
+const amenitiesformRouter = require("./routes/amenitiesform_route");
+
 const connectMongoDB = require("./config/connection");
 const PORT = 3000;
 
@@ -42,6 +44,9 @@ app.use("/api/complaints", complaintRouter);
 
 //Visitor Route
 app.use("/api/visitorsLog", visitorRouter);
+
+//Amenities Form Route
+app.use("/api/amenities/book", amenitiesformRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
