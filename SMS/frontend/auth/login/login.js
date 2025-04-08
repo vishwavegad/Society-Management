@@ -21,7 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, role: selectedRole })
-    });
+      });
+      console.log({ email, password, role: selectedRole });
 
       const data = await response.json();
 
@@ -34,10 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if(data.role==="admin"){
           window.location.href = "../../admin/homepage/homepage.html";
         }
+        else if(data.role==="security")
+        {
+          window.location.href = "../../security/visitorsLog.html";
+        }
         else
         {
           window.location.href = "../../members/homepage/homepage.html";
-
         }
       } else {
         alert(data.msg || "Login failed");

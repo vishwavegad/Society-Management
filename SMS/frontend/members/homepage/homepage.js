@@ -48,10 +48,21 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((data) => {
         console.log("Fetched data: ", data);
         rightContent.innerHTML = data;
+
+        const fileName = url.split("/").pop().split(".")[0]; // e.g., visitorslog
+        const scriptPath = `../${fileName}/${fileName}.js`; // e.g., ../visitorslog/visitorslog.js
+
+        const script = document.createElement("script");
+        script.src = scriptPath;
+        script.type = "text/javascript";
+        script.onload = () => console.log(`Loaded script: ${scriptPath}`);
+        script.onerror = () => console.warn(`Script not found: ${scriptPath}`);
+        document.body.appendChild(script);
+
         // addButtonEventListeners();
-        if(url.includes("complaint.html")){
-          loadScript("../complaint/complaint.js");
-        }
+        // if(url.includes("complaint.html")){
+        //   loadScript("../complaint/complaint.js");
+        // }
       })
       .catch((error) => {
         rightContent.innerHTML = "<p>Sorry the page could not be loaded</p>";

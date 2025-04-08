@@ -1,3 +1,4 @@
+(async function (){
 const paymentTable = document.getElementById("payment-list");
 const filterStatus = document.getElementById("filter-status");
 const searchUnit = document.getElementById("search-unit");
@@ -196,3 +197,4 @@ function generateReport() {
 function downloadCsv() {
   alert("Download CSV not yet implemented.");
 }
+})();

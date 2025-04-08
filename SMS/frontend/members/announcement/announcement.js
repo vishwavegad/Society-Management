@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async () => {
+(async function (){
   const announcementsList = document.getElementById("announcementsList");
 
   try {
@@ -41,4 +41,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Error fetching announcements:", error);
     announcementsList.innerHTML = "<p>Failed to load announcements</p>";
   }
-});
+})();
