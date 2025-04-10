@@ -7,31 +7,33 @@
     <link rel="stylesheet" href="../announcement/announcement.css" />
   </head>
   <body>
-    <div class="announcement-section">
-      <h1>Announcements</h1>
-      <div class="add-announcement">
-        <button id="add-button">Add Announcement</button>
-        <div
-          class="announcement-text-container"
-          id="announcement-text-container">
-          <input
-            type="text"
-            id="announcement-subject"
-            placeholder="Subject of the Announcement"/>
-          <div class="textarea-container">
-            <textarea
-              name="announcement"
-              id="announcement-text"
-              placeholder="Write your announcement here"></textarea>
-            <div id="char-count" style="color: #646364;">200</div>
+    <div class="announcement-wrapper">
+      <div class="announcement-section">
+        <h1>Announcements</h1>
+        <div class="add-announcement">
+          <button id="add-button">Add Announcement</button>
+          <div
+            class="announcement-text-container"
+            id="announcement-text-container">
+            <input
+              type="text"
+              id="announcement-subject"
+              placeholder="Subject of the Announcement"/>
+            <div class="textarea-container">
+              <textarea
+                name="announcement"
+                id="announcement-text"
+                placeholder="Write your announcement here"></textarea>
+              <div id="char-count" style="color: #646364;">200</div>
+            </div>
+            <button id="send-button">Send</button>
           </div>
-          <button id="send-button">Send</button>
         </div>
+        <div class="search-announcements">
+          <input type="text" placeholder="Search announcements....">
+        </div>
+        <div class="announcement-list" id="announcementsList"></div>
       </div>
-      <div class="search-announcements">
-        <input type="text" placeholder="Search announcements....">
-      </div>
-      <div class="announcement-list" id="announcementsList"></div>
     </div>
     <script src="../announcement/announcement.js"></script>
   </body>

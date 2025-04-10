@@ -140,6 +140,7 @@
           localStorage.removeItem("announcementTextArea");
           announcementTextArea.style.display = "none";
           charCountDisplay.textContent = "200";
+          announcementTextContainer.classList.remove("active");
         } else {
           alert(result.message || "Failed to send announcement");
         }

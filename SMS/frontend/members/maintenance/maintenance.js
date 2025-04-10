@@ -1,4 +1,5 @@
-async function submitPayment() {
+async function submitPayment(event) {
+  event.preventDefault();
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const amount = parseFloat(document.getElementById("amount").value);
