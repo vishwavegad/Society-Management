@@ -32,6 +32,7 @@ h1 {
     padding: 10px;
     border-radius: 8px;
     text-align: center;
+    text-decoration: none;
     /* transition: transform 0.3s; */
     width: calc(25% - 15px);
     /* min-width: 20px; */
