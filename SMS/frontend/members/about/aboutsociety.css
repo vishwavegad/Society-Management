@@ -1,11 +1,27 @@
-*{
+/* Base styles */
+* {
     margin: 0;
     padding: 0;
 }
-body{
+body {
     background-color: #d2e6e9;
 }
-h1{
+h1 {
     color: #003366;
     margin-top: 100px;
+}
+
+/* For screens 768px and below */
+@media screen and (max-width: 768px) {
+    h1 {
+        margin-top: 50px;  /* Reduce margin for tablets */
+    }
+}
+
+/* For screens 480px and below */
+@media screen and (max-width: 480px) {
+    h1 {
+        margin-top: 20px;  /* Reduce margin even more for mobile */
+        font-size: 1.5rem;  /* Make font smaller on mobile */
+    }
 }

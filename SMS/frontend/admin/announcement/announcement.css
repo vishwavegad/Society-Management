@@ -20,8 +20,8 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
 #add-button {
-  /* padding: rem; */
   height: 3rem;
   width: 11rem;
   font-size: 1rem;
@@ -31,17 +31,21 @@ body {
   margin-bottom: 1.5rem;
   border: none;
 }
+
 .add-announcement button:hover {
   background-color: #002244;
   cursor: pointer;
 }
+
 #announcement-text-container {
   display: none;
 }
+
 .announcement-text-container {
   display: flex;
   flex-direction: column;
 }
+
 input {
   margin-bottom: 1.5rem;
   height: 1.5rem;
@@ -51,6 +55,7 @@ input {
   color: #003366;
   font-size: 1rem;
 }
+
 textarea {
   width: 50rem;
   height: 7rem;
@@ -65,11 +70,13 @@ textarea {
   vertical-align: top;
   resize: none;
 }
-.textarea-container{
+
+.textarea-container {
   position: relative;
   display: inline-block;
 }
-#char-count{
+
+#char-count {
   position: absolute;
   bottom: 5px;
   right: 10px;
@@ -84,6 +91,7 @@ textarea {
   border-radius: 2rem;
   /* border: none; */
 }
+
 #send-button {
   height: 2rem;
   width: 5rem;
@@ -106,32 +114,24 @@ textarea {
   transform: scale(1);
 }
 
-
 input[type="text"]:focus,
 textarea:focus {
   outline: none;
   border: 1px solid #003366;
   font-family: Helvetica, sans-serif;
-  /* border-color: #4CAF50; */
-  /* border-color: #003366;
-  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1); */
 }
 
-input::placeholder{
-    font-family: Helvetica, sans-serif;
+input::placeholder {
+  font-family: Helvetica, sans-serif;
 }
 
-textarea::placeholder{
-    font-family: Helvetica, sans-serif;
+textarea::placeholder {
+  font-family: Helvetica, sans-serif;
 }
 
-.search-announcements{
+.search-announcements {
   margin-left: 30px;
 }
-
-/* .announcement-list {
-  margin-top: 10px;
-} */
 
 .announcement-card {
   padding: 20px;
@@ -154,4 +154,72 @@ textarea::placeholder{
 
 .announcement-card span {
   color: #646364;
+}
+
+/* Responsive Styles for Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .announcement-section h1 {
+    font-size: 1.8rem;
+    margin: 20px;
+    text-align: center;
+  }
+
+  textarea {
+    width: 90%;
+  }
+
+  .announcement-text-container button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .search-announcements {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .announcement-card {
+    margin: 15px;
+  }
+}
+
+/* Responsive Styles for Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .announcement-section h1 {
+    font-size: 1.5rem;
+    margin: 15px;
+  }
+
+  #add-button {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  input {
+    font-size: 0.9rem;
+  }
+
+  .announcement-text-container button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #send-button {
+    width: 100%;
+  }
+
+  .search-announcements {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .announcement-card {
+    margin: 10px;
+    padding: 15px;
+  }
 }

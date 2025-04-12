@@ -5,7 +5,6 @@
 }
 
 body {
-    /* font-family: 'Arial', sans-serif; */
     background-color: #e6eced;
     display: flex;
     justify-content: center;
@@ -68,16 +67,6 @@ select:focus {
     box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
 }
 
-/* select {
-    appearance: none;
-    -webkit-appearance: none;
-    background-image: url('data:image/svg+xml;utf8,<svg fill="%234CAF50" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 10px top 50%;
-    background-size: 20px auto;
-    cursor: pointer;
-} */
-
 label {
     display: block;
     margin-bottom: 5px;
@@ -105,13 +94,65 @@ button:hover {
     background-color: #002244;
 }
 
+/* ✅ Responsive for tablets (≤ 768px) */
+@media (max-width: 768px) {
+    .registration {
+        padding: 25px;
+    }
+
+    .signin h1 {
+        font-size: 24px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    select {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 9px;
+    }
+
+    label {
+        font-size: 13px;
+    }
+}
+
+/* ✅ Responsive for phones (≤ 480px) */
 @media (max-width: 480px) {
     .registration {
         padding: 20px;
     }
+
+    .signin h1 {
+        font-size: 22px;
+    }
+
+    .logo img {
+        width: 80px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    select {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    label {
+        font-size: 12px;
+    }
 }
 
-/* Add some animation */
+/* Animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }

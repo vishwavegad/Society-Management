@@ -5,13 +5,13 @@
 }
 
 body {
-    /* font-family: 'Arial', sans-serif; */
     background-color: #e6eced;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    font-family: 'Poppins', sans-serif;  /* Add a modern font for better look */
 }
 
 .registration {
@@ -21,6 +21,7 @@ body {
     width: 100%;
     max-width: 400px;
     padding: 30px;
+    box-sizing: border-box;  /* Ensure padding is included in width calculation */
 }
 
 header {
@@ -68,16 +69,6 @@ select:focus {
     box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
 }
 
-/* select {
-    appearance: none;
-    -webkit-appearance: none;
-    background-image: url('data:image/svg+xml;utf8,<svg fill="%234CAF50" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 10px top 50%;
-    background-size: 20px auto;
-    cursor: pointer;
-} */
-
 label {
     display: block;
     margin-bottom: 5px;
@@ -91,7 +82,7 @@ label {
 
 button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background-color: #003366;
     color: white;
     border-radius: 4px;
@@ -105,9 +96,27 @@ button:hover {
     background-color: #002244;
 }
 
+/* Mobile Responsiveness (max-width: 480px) */
 @media (max-width: 480px) {
     .registration {
-        padding: 20px;
+        width: 90%;  /* Reduced width for mobile */
+        padding: 20px;  /* Reduced padding */
+    }
+
+    .signin h1 {
+        font-size: 1.8rem;  /* Smaller font for mobile devices */
+        margin-bottom: 15px;  /* Reduce margin for mobile */
+    }
+
+    input[type="text"],
+    input[type="password"],
+    select {
+        font-size: 14px;  /* Smaller font size for inputs */
+    }
+
+    button {
+        padding: 14px;  /* Slightly larger button for better usability */
+        font-size: 14px;  /* Smaller font size for button */
     }
 }
 

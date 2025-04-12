@@ -266,3 +266,79 @@ th {
         font-size: 14px;
     }
 }
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    .container h2 {
+        font-size: 24px;
+    }
+
+    .container h3 {
+        font-size: 20px;
+    }
+
+    input[type="text"], input[type="tel"], input[type="email"], input[type="password"], input[type="date"],
+    select {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .download-link a {
+        font-size: 16px;
+    }
+
+    .payment-stats {
+        gap: 8px;
+    }
+
+    .stat-box {
+        padding: 10px;
+    }
+
+    .stat-title {
+        font-size: 13px;
+    }
+
+    .stat-value {
+        font-size: 18px;
+    }
+
+    .action-buttons {
+        gap: 8px;
+    }
+
+    .filter-section {
+        gap: 8px;
+    }
+
+    .payment-records {
+        padding: 8px;
+    }
+
+    th, td {
+        padding: 6px 4px;
+        font-size: 12px;
+    }
+
+    .action-btn {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .close-btn {
+        font-size: 24px;
+    }
+}

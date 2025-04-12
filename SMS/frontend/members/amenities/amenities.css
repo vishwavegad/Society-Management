@@ -1,15 +1,14 @@
+/* Base styles */
 body {
     margin: 0;
     padding: 20px;
     font-family: Arial, sans-serif;
-    /* background-color: #e6eced; */
     background-color: #d2e6e9;
     overflow: hidden;
 }
 
 .container {
     max-width: 1200px;
-    /* margin: 0 auto; */
     margin: 30px;
 }
 
@@ -32,15 +31,9 @@ h1 {
     padding: 10px;
     border-radius: 8px;
     text-align: center;
-    /* transition: transform 0.3s; */
-    width: calc(25% - 15px);
-    /* min-width: 20px; */
+    width: calc(25% - 15px);  /* 4 items per row */
     box-sizing: border-box;
 }
-
-/* .amenity-box:hover {
-    transform: translateY(-5px);
-} */
 
 .amenity-box h2 {
     color: #003366;
@@ -59,8 +52,29 @@ h1 {
     color: #003366;
 }
 
-        /* @media (max-width: 768px) {
-            .amenity-box {
-                width: 100%;
-            }
-        } */
+/* Media Query for screens up to 768px (Tablets) */
+@media screen and (max-width: 768px) {
+    .amenity-box {
+        width: calc(50% - 15px);  /* 2 items per row */
+    }
+
+    h1 {
+        font-size: 1.5rem;  /* Slightly smaller heading */
+    }
+}
+
+/* Media Query for screens up to 480px (Mobile) */
+@media screen and (max-width: 480px) {
+    .amenity-box {
+        width: 100%;  /* 1 item per row */
+        padding: 15px;  /* More padding on mobile */
+    }
+
+    h1 {
+        font-size: 1.2rem;  /* Smaller heading for small screens */
+    }
+
+    .icon {
+        font-size: 2rem;  /* Smaller icons for mobile */
+    }
+}

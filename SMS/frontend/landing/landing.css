@@ -168,3 +168,41 @@ nav.hidden {
     }
 }
 
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .logo img {
+        width: 120px;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .options {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+        width: 100%;
+        padding-left: 20px;
+    }
+
+    .heading {
+        font-size: 28px;
+        padding: 20px;
+        margin-left: 20px;
+    }
+
+    .signin a {
+        padding: 20px;
+        margin-left: 20px;
+    }
+
+    .signin button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+    }
+}

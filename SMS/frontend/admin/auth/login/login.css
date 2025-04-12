@@ -5,10 +5,6 @@
 }
 
 body {
-    /* font-family: Arial, sans-serif;
-    background-color: #f0f2f5; */
-    /* font-family: 'Poppins', sans-serif; */
-    /* background-color: #B0E0E6;  */
     background-color: #e6eced;
     display: flex;
     justify-content: center;
@@ -17,10 +13,8 @@ body {
 }
 
 .login {
-    /* background-color: white; */
     background-color: #B0E0E6; 
     border-radius: 8px;
-    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
     width: 100%;
     max-width: 400px;
@@ -41,7 +35,6 @@ header {
 .loginmain h1 {
     text-align: center;
     margin-bottom: 20px;
-    /* color: #333; */
     color: #003366; 
     font-size: 24px;
 }
@@ -64,26 +57,24 @@ input[type="password"] {
 input[type="text"]:focus,
 input[type="password"]:focus {
     outline: none;
-    /* border-color: #4CAF50; */
     border-color: #003366; 
     box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
 }
 
 .forgot-password {
-    text-align: center; /* Center align the link */
-    margin-top: 10px; /* Space above the link */
+    text-align: center;
+    margin-top: 10px;
 }
 
 .forgot-password a {
-    color:#053155; /* Link color */
-    text-decoration: none; /* Remove underline */
-    transition: color 0.3s ease; /* Smooth transition for color change */
+    color: #053155;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .forgot-password a:hover {
-    color: #2196F3; /* Darker color on hover */
+    color: #2196F3;
 }
-
 
 .loginbutton {
     margin-top: 20px;
@@ -92,7 +83,6 @@ input[type="password"]:focus {
 button {
     width: 100%;
     padding: 10px;
-    /* background-color: #4CAF50; */
     background-color: #003366; 
     color: white;
     border: none;
@@ -103,7 +93,6 @@ button {
 }
 
 button:hover {
-    /* background-color: #45a049; */
     background-color: #002244;
 }
 
@@ -135,8 +124,55 @@ button:hover {
     opacity: 0;
 }
 
-@media (max-width: 480px) {
+/* ✅ Responsive Styles for Tablets (max-width: 768px) */
+@media (max-width: 768px) {
     .login {
         width: 90%;
+        padding: 15px;
+    }
+
+    .loginmain h1 {
+        font-size: 22px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    button {
+        font-size: 15px;
+    }
+
+    .logo img {
+        width: 80px;
+    }
+}
+
+/* ✅ Responsive Styles for Mobiles (max-width: 480px) */
+@media (max-width: 480px) {
+    .login {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .loginmain h1 {
+        font-size: 20px;
+    }
+
+    .logo img {
+        width: 70px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .noaccount p {
+        font-size: 14px;
+    }
+
+    .forgot-password {
+        font-size: 14px;
     }
 }
