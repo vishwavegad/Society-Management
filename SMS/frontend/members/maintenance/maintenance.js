@@ -1,3 +1,13 @@
+function initializeMaintenanceForm() {
+  const form = document.querySelector("form");
+  if (!form) {
+    console.error("Maintenance form not found.");
+    return;
+  }
+
+  form.addEventListener("submit", submitPayment);
+}
+
 async function submitPayment(event) {
   event.preventDefault();
   const name = document.getElementById("name").value;
@@ -44,3 +54,5 @@ async function submitPayment(event) {
     alert("Something went wrong. Please try again.");
   }
 }
+
+window.initializeMaintenanceForm = initializeMaintenanceForm;

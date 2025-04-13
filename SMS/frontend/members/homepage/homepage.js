@@ -55,7 +55,23 @@ document.addEventListener("DOMContentLoaded", () => {
         const script = document.createElement("script");
         script.src = scriptPath;
         script.type = "text/javascript";
-        script.onload = () => console.log(`Loaded script: ${scriptPath}`);
+        script.onload = () => {
+          console.log(`Loaded script: ${scriptPath}`);
+        
+          const initFnName = `initialize${fileName.charAt(0).toUpperCase() + fileName.slice(1)}Form`;
+          if (typeof window[initFnName] === "function") {
+            window[initFnName]();
+          }
+
+          // if (fileName === "complaint" && typeof initializeComplaintForm === "function") {
+          //   initializeComplaintForm();
+          // }
+
+          // if (fileName === "maintenance" && typeof initializeMaintenanceForm === "function") {
+          //   initializeMaintenanceForm();
+          // }
+          
+        };
         script.onerror = () => console.warn(`Script not found: ${scriptPath}`);
         document.body.appendChild(script);
 

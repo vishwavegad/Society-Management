@@ -128,8 +128,19 @@ textarea {
 .search-announcements{
   margin-top: 20px;
   margin-left: 30px;
-  width: 30%;
+  margin-bottom: 20px;
+  width: 40%;
   height: 50px;
+  border: none;
+}
+
+input {
+  margin-top: 20px;
+  /* width: 30%; */
+  height: 40px;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: medium;
 }
 
 /* .search-announcements input{
