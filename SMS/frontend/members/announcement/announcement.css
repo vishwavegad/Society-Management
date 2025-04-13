@@ -1,11 +1,22 @@
-*{
+/* Base styles */
+* {
     padding: 0;
     margin: 0;
 }
 
-body{
+body {
     background-color: #d2e6e9;
-    /* background-color: #96bbe0; */
+}
+
+.announcement-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.announcement-section{
+    width: 100%;
+    max-width: 900px;
 }
 
 .announcement-wrapper{
@@ -20,22 +31,27 @@ body{
 }
 
 .announcement-section h1 {
-    /* font-size: 2.5rem; */
+    color: #003366;
+    margin: 30px;
+}
+.announcement-section h1 {
     color: #003366;
     margin: 30px;
     margin-left: 5px;
+    font-size: 2.5rem; /* Default font size for larger screens */
 }
 
-input{  
+input {
     margin-top: 20px;
-    /* margin-left: 30px; */
     width: 30%;
     height: 40px;
     border-radius: 5px;
     padding: 5px;
     font-size: medium;
-    border:none;
+    border: none;
 }
+
+
 
 .announcement-list {
     margin-top: 20px;
@@ -56,15 +72,60 @@ input{
     box-sizing: border-box;
 }
 
-.announcement-card h3{
+.announcement-card h3 {
     color: #003366;
     margin-bottom: 10px;
 }
 
-.announcement-card p{
+.announcement-card p {
     margin-bottom: 10px;
 }
 
-.announcement-card span{
+.announcement-card span {
     color: #646364;
+}
+
+/* Media Query for screens up to 768px (Tablets) */
+@media screen and (max-width: 768px) {
+    .announcement-section h1 {
+        font-size: 2rem;  /* Slightly smaller heading for tablets */
+        text-align: center;  /* Center the heading for better alignment */
+    }
+
+    .announcement-card {
+        margin: 15px;  /* Less margin on smaller screens */
+    }
+
+    .announcement-card h3 {
+        font-size: 1.3rem;  /* Adjust h3 font size for better readability */
+    }
+
+    .announcement-card p {
+        font-size: 1rem;  /* Adjust paragraph font size */
+    }
+}
+
+/* Media Query for screens up to 480px (Mobile) */
+@media screen and (max-width: 480px) {
+    .announcement-section h1 {
+        font-size: 1.5rem;  /* Smaller heading for mobile */
+        margin: 15px;  /* Reduce margin for mobile screens */
+    }
+
+    .announcement-card {
+        margin: 10px;  /* Reduced margin on mobile */
+        padding: 10px;  /* Reduced padding for mobile */
+    }
+
+    .announcement-card h3 {
+        font-size: 1.2rem;  /* Smaller heading for mobile */
+    }
+
+    .announcement-card p {
+        font-size: 0.9rem;  /* Smaller text for mobile */
+    }
+
+    .announcement-card span {
+        font-size: 0.8rem;  /* Smaller span text */
+    }
 }

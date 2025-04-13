@@ -1,18 +1,21 @@
-*{
+/* Reset default styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: #f0f2f5;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-family: Helvetica, sans-serif;
 }
 
-.container{
+/* Container Styling */
+.container {
     background-color: #B0E0E6;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -23,16 +26,18 @@ body{
     transition: height 0.5s ease, padding 0.5s ease;
 }
 
-.container h2{
+/* Heading */
+.container h2 {
     text-align: center;
     color: #003366;
     font-size: 30px;
     margin-bottom: 20px;
 }
 
-input[type="text"]{
+/* Input Fields */
+input[type="text"] {
     color: rgb(90, 88, 88);
-    border:1px solid white;
+    border: 1px solid white;
     border-radius: 5px;
     padding: 10px;
     font-size: 16px;
@@ -40,20 +45,22 @@ input[type="text"]{
     transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus{
+/* Focused State for Inputs */
+input[type="text"]:focus {
     outline: none;
     border-color: navy;
 }
 
+/* Password Field Styling */
 .password-container {
     position: relative;
     width: 100%;
     max-width: 500px;
 }
-  
+
 .password-container input {
     color: rgb(90, 88, 88);
-    border:1px solid white;
+    border: 1px solid white;
     border-radius: 5px;
     padding: 10px;
     font-size: 16px;
@@ -63,11 +70,13 @@ input[type="text"]:focus{
     transition: border-color 0.3s ease;
 }
 
-.password-container input:focus{
+/* Focused State for Password Input */
+.password-container input:focus {
     outline: none;
     border-color: navy;
 }
-  
+
+/* Icon Styling for Password Toggle */
 .password-container .icon {
     position: absolute;
     top: 50%;
@@ -76,33 +85,39 @@ input[type="text"]:focus{
     display: flex;
     align-items: center;
 }
-  
+
+/* Icon Image Styling */
 .password-container .icon img {
     width: 30px;
     height: 30px;
-    margin-bottom: 15px;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
-button{
+button {
     width: 100%;
     margin-top: 20px;
     padding: 10px;
     border: none;
     color: white;
-    /* background-color: blue; */
-    font-size: 16px;
     background-color: #003366;
+    font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-button:hover{
-    /* background-color: rgb(9, 9, 131); */
+/* Button Hover Effect */
+button:hover {
     background-color: #002244;
 }
 
+/* Button Focus Effect for Accessibility */
+button:focus {
+    outline: 2px solid #2196F3;
+    outline-offset: 2px;
+}
+
+/* Mobile Responsiveness */
 @media (max-width: 480px) {
     .container {
         width: 90%;

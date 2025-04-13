@@ -1,11 +1,29 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-body{
+body {
     background-color: #d2e6e9;
 }
-h1{
+h1 {
     color: #003366;
     margin-top: 100px;
+}
+
+/* Responsive Styles for Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-top: 80px;
+    }
+}
+
+/* Responsive Styles for Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-top: 60px;
+    }
 }

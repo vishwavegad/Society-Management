@@ -1,56 +1,54 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    /* background-color: #f0f2f5; */
+body {
     background-color: #d2e6e9;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* text-align: center; */
     min-height: 100vh;
     padding: 20px;
     overflow: hidden;
 }
 
-.container{
-    /* background-color: #83ddf8; */
-    /* align-items: center; */
+.container {
     margin-top: 5rem;
     background-color: #B0E0E6;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
     width: 100%;
     max-width: 500px;
     padding: 30px;
     text-align: center;
+    box-sizing: border-box;  /* Ensures padding doesn't affect width */
 }
 
-.container h2{
+.container h2 {
     text-align: center;
     color: #003366;
     font-size: 30px;
     margin-bottom: 20px;
 }
 
-input[type="text"], input[type="tel"], input[type="email"]{
+input[type="text"], 
+input[type="tel"], 
+input[type="email"] {
     color: rgb(90, 88, 88);
-    border:1px solid white;
+    border: 1px solid white;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 15px;
     font-size: 16px;
-    /* width: 100%; */
+    width: 100%;  /* Ensure the input fields take up full width */
     transition: border-color 0.3s ease;
 }
 
-select{
+select {
     color: rgb(90, 88, 88);
-    border:1px solid white;
+    border: 1px solid white;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 15px;
@@ -59,14 +57,17 @@ select{
     transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus, input[type="tel"]:focus,input[type="email"]:focus, select:focus{
+input[type="text"]:focus, 
+input[type="tel"]:focus,
+input[type="email"]:focus, 
+select:focus {
     outline: none;
     border-color: #003366;
 }
 
-textarea{
+textarea {
     color: rgb(90, 88, 88);
-    border:1px solid white;
+    border: 1px solid white;
     border-radius: 5px;
     padding: 10px;
     font-size: 16px;
@@ -74,32 +75,53 @@ textarea{
     width: 100%;
     resize: vertical;
     min-height: 100px;
-    font-weight: 548;
-    /* height: 100px; */
-    /* text-align: left; */
     transition: border-color 0.3s ease;
 }
 
-textarea:focus{
+textarea:focus {
     outline: none;
     border-color: #003366;
 }
 
-button{
+button {
     width: 100%;
     margin-top: 10px;
     padding: 10px;
     border: none;
     color: white;
-    /* background-color: blue; */
-    font-size: 16px;
     background-color: #003366;
+    font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-button:hover{
-    /* background-color: rgb(9, 9, 131); */
+button:hover {
     background-color: #002244;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .container {
+        width: 90%; /* Reduce width on mobile devices */
+        padding: 20px; /* Adjust padding */
+    }
+
+    .container h2 {
+        font-size: 1.8rem;  /* Adjust font size for small screens */
+    }
+
+    input[type="text"], 
+    input[type="tel"], 
+    input[type="email"], 
+    select, 
+    textarea {
+        font-size: 14px;  /* Reduce font size for smaller devices */
+        padding: 8px;  /* Adjust padding for inputs and textarea */
+    }
+
+    button {
+        font-size: 14px;  /* Reduce button font size */
+        padding: 12px;  /* Adjust padding for button */
+    }
 }

@@ -22,8 +22,8 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
 #add-button {
-  /* padding: rem; */
   height: 3rem;
   width: 11rem;
   font-size: 1rem;
@@ -34,25 +34,34 @@ body {
   border: none;
 }
 
+
 .add-announcement button:hover {
   background-color: #002244;
   cursor: pointer;
 }
+
 #announcement-text-container {
   display: none;
 }
+
 .announcement-text-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .announcement-text-container #announcement-subject{
   display: flex;
   flex-direction: column;
   width: 98%;
   /* padding: 20px; */
   align-items: center;
+}
+
+input {
+  margin-bottom: 1.5rem;
+  height: 1.5rem;
   border: none;
   margin-bottom: 1.5rem;
   /* height: 1.5rem; */
@@ -63,6 +72,7 @@ body {
   font-size: 1rem;
   /* margin-left: 200px; */
 }
+
 textarea {
   /* margin-left: 200px; */
   width: 38rem;
@@ -79,11 +89,13 @@ textarea {
   vertical-align: top;
   resize: none;
 }
-.textarea-container{
+
+.textarea-container {
   position: relative;
   display: inline-block;
 }
-#char-count{
+
+#char-count {
   position: absolute;
   bottom: 5px;
   right: 10px;
@@ -98,6 +110,9 @@ textarea {
   margin-top: 1rem;
   border-radius: 2rem;
   /* border: none; */
+}
+
+#send-button {
   height: 2rem;
   width: 5rem;
   font-size: 1rem;
@@ -141,17 +156,14 @@ textarea:focus {
   outline: none;
   border: 1px solid #003366;
   font-family: Helvetica, sans-serif;
-  /* border-color: #4CAF50; */
-  /* border-color: #003366;
-  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1); */
 }
 
-input::placeholder{
-    font-family: Helvetica, sans-serif;
+input::placeholder {
+  font-family: Helvetica, sans-serif;
 }
 
-textarea::placeholder{
-    font-family: Helvetica, sans-serif;
+textarea::placeholder {
+  font-family: Helvetica, sans-serif;
 }
 
 /* .announcement-list {
@@ -167,6 +179,9 @@ textarea::placeholder{
 .announcement-section{
   width: 100%;
   max-width: 900px;
+}
+.search-announcements {
+  margin-left: 30px;
 }
 
 .announcement-card {
@@ -190,4 +205,72 @@ textarea::placeholder{
 
 .announcement-card span {
   color: #646364;
+}
+
+/* Responsive Styles for Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .announcement-section h1 {
+    font-size: 1.8rem;
+    margin: 20px;
+    text-align: center;
+  }
+
+  textarea {
+    width: 90%;
+  }
+
+  .announcement-text-container button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .search-announcements {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .announcement-card {
+    margin: 15px;
+  }
+}
+
+/* Responsive Styles for Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .announcement-section h1 {
+    font-size: 1.5rem;
+    margin: 15px;
+  }
+
+  #add-button {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  input {
+    font-size: 0.9rem;
+  }
+
+  .announcement-text-container button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #send-button {
+    width: 100%;
+  }
+
+  .search-announcements {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .announcement-card {
+    margin: 10px;
+    padding: 15px;
+  }
 }
