@@ -10,12 +10,17 @@
     <div class="container">
         <h3>Get In Touch</h3>
         <h1>Contact Us</h1>
-        <input type="text" placeholder="Name">
-        <input type="text" placeholder="Society Location">
-        <input type="email" name="" id="" placeholder="Email Adress">
-        <input type="tel" name="" id="" placeholder="Mobile Number">
-        <textarea placeholder="Tell Us More About Your Requirement"></textarea> 
-        <button class="btn">Submit</button>
+        <form id="contactForm">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="location" placeholder="Society Location" required>
+            <input type="email" name="email" placeholder="Email Adress" required>
+            <input type="tel" name="phone" placeholder="Mobile Number" required>
+            <textarea name="message" placeholder="Tell Us More About Your Requirement" required></textarea> 
+            <button class="btn" type="submit">Submit</button>
+        </form>
+        <p id="formResponse" style="margin-top: 10px; text-align: center;"></p>
     </div>
+
+    <script src="../contactus/contactus.js"></script>
 </body>
 </html>
