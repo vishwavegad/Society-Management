@@ -1,166 +1,168 @@
 /* Reset default styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #f0f2f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: Helvetica, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Helvetica, sans-serif;
 }
 
 /* Container Styling */
 .container {
-    background-color: #B0E0E6;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 500px;
-    padding: 20px;
-    overflow: hidden;
-    transition: height 0.5s ease, padding 0.5s ease;
+  background-color: #b0e0e6;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  overflow: hidden;
+  transition: height 0.5s ease, padding 0.5s ease;
 }
 
 /* Heading */
 .container h2 {
-    text-align: center;
-    color: #003366;
-    font-size: 30px;
-    margin-bottom: 20px;
+  text-align: center;
+  color: #003366;
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 
 /* Paragraph Text */
 .container p {
-    text-align: center;
-    color: rgb(90, 88, 88);
-    font-size: 20px;
+  text-align: center;
+  color: rgb(90, 88, 88);
+  font-size: 20px;
 }
 
 /* Input Fields */
-input[type="text"], .otp-input {
-    color: rgb(90, 88, 88);
-    border: 1px solid white;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
-    width: 100%;
-    transition: border-color 0.3s ease;
-    margin-bottom: 15px; /* Added space for better layout */
+input[type="text"],
+.otp-input {
+  color: rgb(90, 88, 88);
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  transition: border-color 0.3s ease;
+  margin-bottom: 15px; /* Added space for better layout */
 }
 
 /* Focus Effects */
-input[type="text"]:focus, .otp-input:focus {
-    outline: none;
-    border-color: navy;
+input[type="text"]:focus,
+.otp-input:focus {
+  outline: none;
+  border-color: navy;
 }
 
 /* Hiding Spinner (for number inputs) */
 .input-container input::-webkit-inner-spin-button,
 .input-container input::-webkit-outer-spin-button {
-    display: none;
+  display: none;
 }
 
 /* OTP Inputs Styling */
 .input-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 /* OTP Input Fields */
 .otp-input {
-    width: 45px;
-    height: 45px;
-    text-align: center;
-    padding: 10px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
 }
 
 /* Disabled Button State */
 .verify {
-    pointer-events: none;
-    background-color: #96bbe0;
+  pointer-events: none;
+  background-color: #96bbe0;
 }
 
 /* Active Button State */
 .active {
-    background-color: #003366;
-    pointer-events: auto;
+  background-color: #003366 !important;
+  pointer-events: auto;
 }
 
 /* Resend Link Styling */
 .resend-link {
-    text-decoration: none;
-    color: #053155;
+  text-decoration: none;
+  color: #053155;
 }
 
 .resend-link:hover {
-    color: #2196F3;
+  color: #2196f3;
 }
 
 /* Hidden Elements */
 .hidden {
-    display: none;
+  display: none;
 }
 
 /* Step Styling (if using steps) */
 .step {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 /* Buttons */
 button {
-    width: 100%;
-    margin-top: 20px;
-    padding: 10px;
-    border: none;
-    color: white;
-    background-color: #003366;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.1s ease;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  color: white;
+  background-color: #003366;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 /* Button Hover State */
 button:hover {
-    background-color: #002244;
+  background-color: #002244;
 }
 
 /* Button Active State */
 button:active {
-    transform: scale(0.98); /* Subtle click effect */
+  transform: scale(0.98); /* Subtle click effect */
 }
 
 /* Mobile Responsive Design */
 @media (max-width: 480px) {
-    .container {
-        width: 90%;
-    }
+  .container {
+    width: 90%;
+  }
 
-    /* Adjust OTP input size on small screens */
-    .otp-input {
-        width: 40px;
-        height: 40px;
-    }
+  /* Adjust OTP input size on small screens */
+  .otp-input {
+    width: 40px;
+    height: 40px;
+  }
 
-    /* Adjust font sizes on mobile */
-    .container h2 {
-        font-size: 24px;
-    }
+  /* Adjust font sizes on mobile */
+  .container h2 {
+    font-size: 24px;
+  }
 
-    .container p {
-        font-size: 18px;
-    }
+  .container p {
+    font-size: 18px;
+  }
 
-    button {
-        font-size: 14px;
-    }
+  button {
+    font-size: 14px;
+  }
 }
