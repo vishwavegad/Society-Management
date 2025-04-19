@@ -1,64 +1,144 @@
+/* your existing theme (unchanged) */
 body {
-    margin: 0;
-    padding: 20px;
     font-family: Arial, sans-serif;
-    /* background-color: #e6eced; */
-    background-color: #d2e6e9;
-    overflow: hidden;
-}
-
-.container {
-    max-width: 1200px;
-    /* margin: 0 auto; */
-    margin: 30px;
-}
-
-h1 {
-    color: #003366;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.amenities-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-}
-
-.amenity-box {
-    background-color: #f2f0f5;
-    box-shadow: 0 4px 8px #003366;
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
-    /* transition: transform 0.3s; */
-    width: calc(25% - 15px);
-    /* min-width: 20px; */
-    box-sizing: border-box;
-}
-
-/* .amenity-box:hover {
-    transform: translateY(-5px);
-} */
-
-.amenity-box h2 {
-    color: #003366;
-    margin-bottom: 10px;
-    font-size: 1rem;
-}
-
-.amenity-box p {
-    color: #646364;
     margin: 0;
-}
-
-.icon {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    padding: 0;
+    background-color: #f2f4f5;
+  }
+  
+  .container {
+    width: 40%;
+    margin: 120px auto;
+    background: #b0e0e6;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #000080;
+    text-align: center;
+  }
+  
+  .search-container {
+    text-align: center;
+  }
+  
+  #searchInput,
+  #searchBtn {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    outline: none;
+  }
+  
+  #searchInput {
+    width: 30%;
+  }
+  
+  #searchBtn {
+    background-color: #003366;
+    color: white;
+    cursor: pointer;
+  }
+  
+  #searchBtn:hover {
+    background-color: #002244;
+  }
+  
+  #searchInput:focus {
+    border: 1px solid #003366;
+  }
+  
+  table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #003366;
+    color: white;
+  }
+  
+  /* ✅ New Action Buttons */
+  .action-btn {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .approve {
+    background-color: #28a745;
+  }
+  
+  .reject {
+    background-color: #dc3545;
+  }
+  
+  .approve:hover {
+    background-color: #218838;
+  }
+  
+  .reject:hover {
+    background-color: #c82333;
+  }
+  .status-select {
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #003366;
+    background-color: white;
     color: #003366;
+  }
+  
+  /* Status label colors */
+.status-pending {
+  color: #ffc107; /* Yellow */
+  font-weight: bold;
+}
+.status-booked {
+  color: #28a745; /* Green */
+  font-weight: bold;
+}
+.status-rejected {
+  color: #dc3545; /* Red */
+  font-weight: bold;
 }
 
+/* Action dropdown */
+.action-select {
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid #003366;
+  background-color: white;
+  color: #003366;
+}
+.delete-btn {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #dc3545;
+  color: white;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+
+
+
+  
 /* Responsive Styles for Tablets (max-width: 768px) */
 @media (max-width: 768px) {
     .amenity-box {
@@ -81,3 +161,4 @@ h1 {
         font-size: 2em;
     }
 }
+
