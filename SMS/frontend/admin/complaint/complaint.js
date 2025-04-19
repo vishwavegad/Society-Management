@@ -1,4 +1,4 @@
-// DOM Elements
+(async function (){
 const complaintsList = document.getElementById('complaintsList');
 const statusModal = document.getElementById('statusModal');
 const closeModal = document.getElementById('closeModal');
@@ -32,6 +32,24 @@ function renderComplaints(complaints) {
     });
 }
 
+function addDeleteListeners() {
+    document.querySelectorAll('.delete-complaint').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const complaintId = event.target.getAttribute('data-id');
+            deleteComplaint(complaintId);
+        });
+    });
+}
+
+function addUpdateListeners() {
+    document.querySelectorAll('.update-status').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const complaintId = event.target.getAttribute('data-id');
+            openStatusModal(complaintId);
+        });
+    });
+}
+
 // Create complaint card
 function createComplaintCard(complaint) {
     const card = document.createElement('div');
@@ -49,8 +67,8 @@ function createComplaintCard(complaint) {
             <p class="complaint-info"><strong>Description:</strong> ${complaint.complaint}</p>
         </div>
         <div class="complaint-actions">
-            <button class="action-button update-status" onclick="openStatusModal('${complaint._id}', '${complaint.status}')">Update Status</button>
-            <button class="action-button delete-complaint" onclick="deleteComplaint('${complaint._id}')">Delete</button>
+            <button class="action-button update-status" data-id="${complaint._id}">Update Status</button>
+            <button class="action-button delete-complaint" data-id="${complaint._id}">Delete</button>
         </div>
     `;
     return card;
@@ -84,7 +102,13 @@ async function updateComplaintStatus() {
         return;
     }
     const newStatus = statusSelect.value.trim();
-    console.log("Selected status:", statusSelect.value);
+    console.log("Selected status:", newStatus);
+
+    const allowedStatuses = ["Pending", "In Progress", "Resolved"];
+    if (!allowedStatuses.includes(newStatus)) {
+        alert("Invalid status selected.");
+        return;
+    }
 
     console.log("Updating status Id: ", currentComplaintId, "with status: ", newStatus);
     try{
@@ -121,6 +145,8 @@ async function deleteComplaint(complaintId) {
             method: "DELETE"
         })
         if(!response.ok){
+            const errorData = await response.json();
+            console.error("Server response: ", errorData);
             throw new Error("Failed to delete complaint");
         }
         alert("Complaint deleted successfully");
@@ -141,4 +167,8 @@ window.addEventListener('click', (event) => {
 });
 
 // Initial render
-fetchComplaints();
+fetchComplaints().then(() => {
+    addDeleteListeners();
+    addUpdateListeners();
+});
+})();

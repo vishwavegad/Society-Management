@@ -4,102 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Society Amenities Booking</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: #d2e6e9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-      overflow: auto;
-    }
-
-    .container {
-      background-color: #B0E0E6;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      width: 100%;
-      max-width: 600px;
-      padding: 30px;
-      margin-top: 4rem;
-    }
-
-    .container h2 {
-      text-align: center;
-      color: #003366;
-      font-size: 30px;
-      margin-bottom: 20px;
-    }
-
-    input[type="text"],
-    input[type="tel"],
-    input[type="email"],
-    input[type="date"],
-    input[type="number"],
-    select {
-      color: rgb(90, 88, 88);
-      border: 1px solid white;
-      border-radius: 5px;
-      padding: 10px;
-      margin-bottom: 15px;
-      font-size: 16px;
-      width: 100%;
-      transition: border-color 0.3s ease;
-    }
-
-    input:focus,
-    select:focus {
-      outline: none;
-      border-color: navy;
-    }
-
-    button {
-      width: 100%;
-      margin-top: 10px;
-      padding: 10px;
-      border: none;
-      color: white;
-      font-size: 16px;
-      background-color: #003366;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #002244;
-    }
-
-    label {
-    
-      font-size: 15px;
-      color: #003366;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .row {
-      margin-top: 1px;  
-      display: flex;
-      gap: 10px;
-      justify-content: space-between;
-    }
-
-    .row select,
-    .row input {
-      flex: 1;
-    }
-
-  </style>
+  <link rel="stylesheet" href="amenitiesform.css">
 </head>
 <body>
   <div class="container">
@@ -125,7 +30,7 @@
       <!-- Show only if "Other" is selected -->
       <input type="text" id="functionInput" class="hidden" placeholder="Enter Function Name (e.g., Holi)" />
 
-      <input type="date" required />
+      <input type="date" id="bookingDate" required />
       <input type="text" placeholder="Time Slot (e.g., 5 PM to 7 PM)" required />
       <input type="number" placeholder="Number of Guests" min="0" />
 
@@ -154,20 +59,7 @@
     </form>
   </div>
 
-  <script>
-    function toggleFunctionInput() {
-      const amenity = document.getElementById("amenity").value;
-      const functionInput = document.getElementById("functionInput");
-      functionInput.classList.toggle("hidden", amenity !== "Other");
-    }
-
-    function calculatePayment() {
-      const duration = document.getElementById("duration").value;
-      const ratePerHour = 100; // ₹100/hour
-      const payment = duration ? duration * ratePerHour : 0;
-      document.getElementById("payment").value = `₹${payment}`;
-    }
-  </script>
+  <script src="amenitiesform.js"></script>
   
 </body>
 </html>

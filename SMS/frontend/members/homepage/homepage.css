@@ -15,6 +15,7 @@ body {
     height: 100%;
     position: fixed;
     top: 0;
+    width: 100%;
 }
 
 .left {
@@ -22,6 +23,9 @@ body {
     width: 20%;
     background-color: #003366;
     z-index: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100vh;
 }
 
 .right {
@@ -31,21 +35,15 @@ body {
     justify-content: center;
     align-items: flex-start;
     padding: 20px;
-    right: 0;
     margin-left: 20%;
-    /* width: 80%; */
     height: 100vh;
     overflow-y: auto;
-    box-sizing: border-box;
     position: relative;
-    /* background-color: #b0e0e6; */
+    box-sizing: border-box;
 }
 
-/* .left .home p{
-    font-weight: bold;
-} */
-
-.left .home button{
+/* Left button */
+.left .home button {
     position: fixed;
     margin-left: 5px;
     margin-top: 5px;
@@ -54,7 +52,7 @@ body {
     border: none;
 }
 
-.left .home button:hover{
+.left .home button:hover {
     cursor: pointer;
 }
 
@@ -68,26 +66,27 @@ body {
 }
 
 /* Profile section */
-.profile{
+.profile {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
     text-align: center;
 }
+
 .profile img {
     width: 100px;
     height: 100px;
     object-fit: cover;
-    /* margin-top: 0px; */
     margin-bottom: 10px;
-    /* margin-left: 14px; */
     border-radius: 50%;
 }
-#profile-img-input{
+
+#profile-img-input {
     display: none;
 }
-.upload-button{
+
+.upload-button {
     display: inline-block;
     color: white;
     padding: 8px 15px;
@@ -97,9 +96,11 @@ body {
     cursor: pointer;
     margin-top: 10px;
 }
-.upload-button:hover{
+
+.upload-button:hover {
     background-color: #002244;
 }
+
 h2 {
     font-size: 24px;
     color: white;
@@ -113,7 +114,7 @@ h2 {
     margin-bottom: 30px;
 }
 
-.features button{
+.features button {
     padding: 10px;
     margin: 2px;
     color: white;
@@ -122,17 +123,19 @@ h2 {
     font-size: 20px;
 }
 
-.features button:hover{
-    background-color: #002244;
-}
-.features button.active{
-    background-color: #002244;;
-}
-.features button:not(.active):hover{
+.features button:hover {
     background-color: #002244;
 }
 
-.features .btn-bg{
+.features button.active {
+    background-color: #002244;
+}
+
+.features button:not(.active):hover {
+    background-color: #002244;
+}
+
+.features .btn-bg {
     background-color: #002244;
 }
 
@@ -144,10 +147,20 @@ h2 {
         position: relative;
     }
 
-    .left, .right {
-        padding: 40px 20px;
+    .left {
+        width: 100%; /* Make the left section full width on mobile */
+        height: auto;
+        position: relative; /* Stack vertically on small screens */
     }
 
+    .right {
+        width: 100%; /* Make the right section full width on mobile */
+        margin-left: 0; /* Remove the left margin */
+        height: auto; /* Allow content to resize */
+        padding: 20px 10px; /* Adjust padding */
+    }
+
+    /* Adjust center position */
     .center {
         position: relative;
         top: 0;
@@ -156,7 +169,32 @@ h2 {
         width: 100%;
     }
 
-    footer {
-        position: relative;
+    /* Profile image */
+    .profile img {
+        width: 80px; /* Make the profile image smaller */
+        height: 80px;
+    }
+
+    /* Adjust button size on small screens */
+    .features button {
+        font-size: 18px;
+        padding: 12px;
+    }
+
+    /* Improve button's padding on mobile */
+    .upload-button, .features button {
+        font-size: 16px;
+    }
+}
+
+/* Further adjustments for very small screens (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    .features button {
+        font-size: 16px;
+        padding: 10px; /* Adjust padding for even smaller screens */
+    }
+
+    h2 {
+        font-size: 20px; /* Reduce header size for smaller screens */
     }
 }

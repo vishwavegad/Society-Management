@@ -10,7 +10,6 @@ const maintainanceSchema = new mongoose.Schema(
     email: {
       type: String,
       required: true,
-      unique: true,
       lowercase: true,
       trim: true,
     },
@@ -35,7 +34,7 @@ const maintainanceSchema = new mongoose.Schema(
     transactionId: {
       type: String,
       required: true,
-      unique: true,
+      // unique: true,
     },
     paymentStatus: {
       type: String,

@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const rightContent = document.getElementById("right-content");
   const aboutsocietyBtn = document.getElementById("aboutsociety-button");
   const maintenanceBtn = document.getElementById("maintenance-button");
+  const visitorBtn = document.getElementById("visitor-button");
   // const defaultButton = document.getElementById("aboutsociety-button");
   const defaultURL = "../about/aboutsociety.html";
 
@@ -71,10 +72,27 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Fetched data: ", data);
         rightContent.innerHTML = data;
 
+        const fileName = url.split("/").pop().split(".")[0]; // e.g., visitorslog
+        const scriptPath = `../${fileName}/${fileName}.js`; // e.g., ../visitorslog/visitorslog.js
+
+        const script = document.createElement("script");
+        script.src = scriptPath;
+        script.type = "text/javascript";
+        script.onload = () => console.log(`Loaded script: ${scriptPath}`);
+        script.onerror = () => console.warn(`Script not found: ${scriptPath}`);
+        document.body.appendChild(script);
+
+        // if (url.includes("visitorslog.html")) {
+        //   const script = document.createElement("script");
+        //   script.src = "../visitorslog/visitorslog.js";
+        //   script.type = "text/javascript";
+        //   document.body.appendChild(script);
+        // }
+
         // Call this function to add event listeners after loading announcement page
-        if (url.includes("announcement.html")) {
-          attachAnnouncementEventListeners();
-        }
+        // if (url.includes("announcement.html")) {
+        //   attachAnnouncementEventListeners();
+        // }
       })
       .catch((error) => {
         rightContent.innerHTML = "<p>Sorry, the page could not be loaded</p>";
@@ -85,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (aboutsocietyBtn) {
     aboutsocietyBtn.addEventListener("click", () => {
       // resetButtons();
-      loadPage(aboutsocietyBtn, "./about/aboutsociety.html");
+      loadPage(aboutsocietyBtn, "../about/aboutsociety.html");
     });
   }
 
@@ -129,6 +147,13 @@ document.addEventListener("DOMContentLoaded", () => {
     complaintBtn.addEventListener("click", () => {
       // resetButtons();
       loadPage(complaintBtn, "../complaint/complaint.html");
+    });
+  }
+
+  if (visitorBtn) {
+    visitorBtn.addEventListener("click", () => {
+      // resetButtons();
+      loadPage(visitorBtn, "../visitorslog/visitorslog.html");
     });
   }
 

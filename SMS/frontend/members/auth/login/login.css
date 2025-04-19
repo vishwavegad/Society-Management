@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e6eced;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;  /* Add a modern font for better look */
+}
+
+.login {
+    background-color: #B0E0E6; 
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    box-sizing: border-box;  /* Ensures padding is accounted for in width */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.loginmain h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #003366; 
+    font-size: 24px;
+}
+
+.username,
+.password {
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #003366; 
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.forgot-password a {
+    color:#053155;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: #2196F3;
+}
+
+.loginbutton {
+    margin-top: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #003366; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #002244;
+}
+
+.noaccount {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.noaccount p {
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.noaccount button {
+    background-color: #2196F3;
+}
+
+.noaccount button:hover {
+    background-color: #1e87db;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.login > * {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+/* Media Query for smaller screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .login {
+        width: 90%;  /* 90% width for smaller screens */
+        padding: 15px;  /* Slightly reduced padding for mobile */
+    }
+
+    .loginmain h1 {
+        font-size: 1.8rem;  /* Smaller title font for mobile */
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        font-size: 14px;  /* Smaller input font size */
+    }
+
+    button {
+        padding: 12px;  /* Slightly larger button for mobile */
+        font-size: 14px;  /* Smaller font size for button */
+    }
+}

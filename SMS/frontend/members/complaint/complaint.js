@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+function initializeComplaintForm(){
   const submitBtn = document.querySelector(".btn");
 
   if (!submitBtn) {
@@ -72,4 +72,4 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Server error. Please try again.");
     }
   });
-});
+};

@@ -66,7 +66,6 @@ body {
     padding-bottom: 50px;
     font-size: 15px;
     text-align: center;
-    height: 10px;
     box-shadow: 0 4px 8px #003366;
 }
 
@@ -113,5 +112,39 @@ footer p {
     .team-container {
         flex-direction: column;
         align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 1.2rem;
+        padding: 0 10px;
+    }
+
+    .about-section h2,
+    .team-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .team-member {
+        width: 90%;
+        padding: 15px;
+        height: auto;
+    }
+
+    .team-member h3 {
+        font-size: 1rem;
+    }
+
+    .team-member p {
+        font-size: 0.85rem;
+    }
+
+    footer p {
+        font-size: 0.8rem;
     }
 }

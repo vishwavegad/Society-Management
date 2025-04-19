@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+(async function (){
   const addBtn = document.getElementById("add-button");
   console.log(addBtn);
   const announcementTextContainer = document.getElementById("announcement-text-container");
@@ -140,6 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
           localStorage.removeItem("announcementTextArea");
           announcementTextArea.style.display = "none";
           charCountDisplay.textContent = "200";
+          announcementTextContainer.classList.remove("active");
         } else {
           alert(result.message || "Failed to send announcement");
         }
@@ -165,4 +166,4 @@ document.addEventListener("DOMContentLoaded", () => {
     saveData();
     updateCharCount();
   });
-});
+})();

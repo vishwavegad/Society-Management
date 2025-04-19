@@ -78,3 +78,44 @@ footer {
         padding: 20px;
     }
 }
+@media (max-width: 768px) {
+    .buysell {
+        padding: 25px;
+    }
+
+    input[type="text"], select, textarea {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    textarea {
+        min-height: 120px;
+    }
+
+    .foot p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .buysell {
+        padding: 20px;
+    }
+
+    input[type="text"], select, textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    textarea {
+        min-height: 100px;
+    }
+
+    .foot {
+        padding: 8px;
+    }
+
+    .foot p {
+        font-size: 13px;
+    }
+}

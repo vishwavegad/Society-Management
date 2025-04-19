@@ -1,5 +1,6 @@
-document.addEventListener("DOMContentLoaded", async () => {
+(async function (){
   const announcementsList = document.getElementById("announcementsList");
+  const searchAnnouncement = document.querySelector(".search-announcements input");
 
   try {
     const response = await fetch("http://localhost:3000/api/announcements");
@@ -41,4 +42,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Error fetching announcements:", error);
     announcementsList.innerHTML = "<p>Failed to load announcements</p>";
   }
-});
+
+    //function to search or filter announcements
+    searchAnnouncement.addEventListener("input", () => {
+      const filter = searchAnnouncement.value.toLowerCase();
+      const announcementCards = document.querySelectorAll(".announcement-card");
+      announcementCards.forEach((card) => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = text.includes(filter) ? "block" : "none";
+      });
+    });
+})();

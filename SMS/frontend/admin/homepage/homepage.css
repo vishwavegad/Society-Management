@@ -186,3 +186,84 @@ h2 {
         position: relative;
     }
 }
+
+/* Existing styles remain unchanged ... */
+
+/* Tablet view (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .split {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .left {
+        width: 100%;
+        position: relative;
+    }
+
+    .right {
+        width: 100%;
+        margin-left: 0;
+        padding: 20px;
+        position: relative;
+        height: auto;
+    }
+
+    .center {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+    }
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .features button {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .left .home button {
+        position: static;
+        margin: 10px 0;
+    }
+
+    footer {
+        position: relative;
+    }
+}
+
+/* Mobile view (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    .profile img {
+        width: 80px;
+        height: 80px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .upload-button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .features button {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .right {
+        padding: 15px;
+    }
+
+    .left, .right {
+        padding: 15px 10px;
+    }
+}

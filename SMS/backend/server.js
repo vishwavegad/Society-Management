@@ -1,5 +1,8 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
+
 // const userRouter = require('./routes/user_route');
 const loginRouter = require("./routes/login_route");
 const signUpRouter = require("./routes/signup_route");
@@ -7,8 +10,12 @@ const announcementRouter = require("./routes/announcement_route");
 const maintenanceRouter = require("./routes/maintenance_route");
 const complaintRouter = require("./routes/complaint_route");
 const visitorRouter = require("./routes/visitorsLog_route");
+const amenitiesformRouter = require("./routes/amenitiesform_route");
+const contactUsRouter = require("./routes/contactus_route");
+const forgotPasswordRouter = require("./routes/forgotPassword_route");
+
 const connectMongoDB = require("./config/connection");
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -17,7 +24,7 @@ app.use(express.json());
 //for frontend communication
 app.use(cors());
 
-connectMongoDB("mongodb://127.0.0.1:27017/SMS").then(() =>
+connectMongoDB(process.env.MONGODB_URI).then(() =>
   console.log("MongoDB connection established")
 );
 
@@ -42,6 +49,15 @@ app.use("/api/complaints", complaintRouter);
 
 //Visitor Route
 app.use("/api/visitorsLog", visitorRouter);
+
+//Amenities Form Route
+app.use("/api/amenities/book", amenitiesformRouter);
+
+//Contact Us Route
+app.use("/api/contactus", contactUsRouter);
+
+//Forgot Password Route
+app.use("/api/forgotpassword", forgotPasswordRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

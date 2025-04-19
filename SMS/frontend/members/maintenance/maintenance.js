@@ -1,4 +1,15 @@
-async function submitPayment() {
+function initializeMaintenanceForm() {
+  const form = document.querySelector("form");
+  if (!form) {
+    console.error("Maintenance form not found.");
+    return;
+  }
+
+  form.addEventListener("submit", submitPayment);
+}
+
+async function submitPayment(event) {
+  event.preventDefault();
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const amount = parseFloat(document.getElementById("amount").value);
@@ -43,3 +54,5 @@ async function submitPayment() {
     alert("Something went wrong. Please try again.");
   }
 }
+
+window.initializeMaintenanceForm = initializeMaintenanceForm;
