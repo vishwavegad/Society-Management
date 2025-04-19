@@ -1,90 +1,134 @@
-let bookings = [
-  {
-    amenity: "Swimming Pool",
-    bookedBy: "Flat A-102",
-    date: "2025-04-20",
-    time: "6:00 PM",
-    status: "Pending"
-  },
-  {
-    amenity: "Clubhouse",
-    bookedBy: "Flat B-304",
-    date: "2025-04-22",
-    time: "4:00 PM",
-    status: "Booked"
-  },
-  {
-    amenity: "Tennis Court",
-    bookedBy: "Flat C-202",
-    date: "2025-04-23",
-    time: "9:00 AM",
-    status: "Rejected"
+(async function () {
+  const bookingTable = document.getElementById("bookingTable");
+  const searchBtn = document.getElementById("searchBtn");
+  const searchInput = document.getElementById("searchInput");
+
+  let bookings = [];
+
+  async function fetchBookings() {
+    try {
+      const response = await fetch(
+        "http://localhost:3000/api/amenities/book/admin",
+        {
+          method: "GET",
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch bookings");
+      }
+      const fetchedBookings = await response.json();
+
+      bookings = fetchedBookings.sort(
+        (a, b) => new Date(b.date) - new Date(a.date)
+      );
+      console.log(bookings.map((b) => b.date));
+      console.log("Fetched bookings:", bookings);
+      renderBookings(bookings);
+    } catch (error) {
+      console.error("Error fetching bookings:", error);
+      alert("Failed to load bookings");
+    }
   }
-];
 
-function getStatusClass(status) {
-  switch (status) {
-    case "Booked":
-      return "status-booked";
-    case "Pending":
-      return "status-pending";
-    case "Rejected":
-      return "status-rejected";
-    default:
-      return "";
+  function renderBookings(data) {
+    bookingTable.innerHTML = "";
+    data.forEach((booking) => {
+      const row = createBookingRow(booking);
+      bookingTable.appendChild(row);
+    });
   }
-}
 
-function renderBookings(filtered = bookings) {
-  const table = document.getElementById("bookingTable");
-  table.innerHTML = "";
-
-  filtered.forEach((booking, index) => {
+  function createBookingRow(booking) {
     const row = document.createElement("tr");
-
+    const status = booking.status || "Pending";
     const actionHTML =
       booking.status === "Pending"
-        ? `<select class="action-select" onchange="updateStatus(${index}, this)">
+        ? `<select class="action-select" onchange="updateStatus('${booking._id}', this)">
              <option disabled selected>Choose</option>
              <option value="Booked">Booked</option>
              <option value="Rejected">Rejected</option>
            </select>`
-        : `<button class="delete-btn" onclick="deleteBooking(${index})">Delete</button>`;
+        : `<button class="delete-btn" onclick="deleteBooking('${booking._id}')">Delete</button>`;
 
     row.innerHTML = `
       <td>${booking.amenity}</td>
-      <td>${booking.bookedBy}</td>
-      <td>${booking.date}</td>
-      <td>${booking.time}</td>
-      <td class="${getStatusClass(booking.status)}">${booking.status}</td>
+      <td>${booking.name}</td>
+      <td>${new Date(booking.date).toLocaleDateString()}</td>
+      <td>${booking.timeSlot}</td>
+      <td class="${getStatusClass(status)}">${status}</td>
       <td>${actionHTML}</td>
     `;
 
-    table.appendChild(row);
-  });
-}
-
-function updateStatus(index, selectElement) {
-  const newStatus = selectElement.value;
-  bookings[index].status = newStatus;
-  renderBookings();
-}
-
-function deleteBooking(index) {
-  if (confirm("Are you sure you want to delete this booking?")) {
-    bookings.splice(index, 1);
-    renderBookings();
+    return row;
   }
-}
 
-document.getElementById("searchBtn").addEventListener("click", () => {
-  const search = document.getElementById("searchInput").value.toLowerCase();
-  const filtered = bookings.filter(
-    (b) =>
-      b.amenity.toLowerCase().includes(search) ||
-      b.bookedBy.toLowerCase().includes(search)
-  );
-  renderBookings(filtered);
-});
+  function getStatusClass(status) {
+    if (status === "Booked") return "text-green-500";
+    if (status === "Rejected") return "text-red-500";
+    return "text-yellow-500";
+  }
 
-renderBookings();
+  async function updateStatus(id, selectElement) {
+    const newStatus = selectElement.value;
+    const booking = bookings.find((b) => b._id === id);
+    if (!booking) return;
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/amenities/book/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ status: newStatus }),
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Failed to update status");
+      }
+      const { updatedBooking } = await response.json();
+      bookings = bookings.map((b) => (b._id === id ? updatedBooking : b));
+      renderBookings(bookings);
+    } catch (error) {
+      console.error("Error updating status: ", error);
+      alert("Failed to update status");
+    }
+  }
+  window.updateStatus = updateStatus;
+
+  async function deleteBooking(id) {
+    if (!confirm("Are you sure you want to delete this booking?")) return;
+
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/amenities/book/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Failed to delete booking");
+      }
+      bookings = bookings.filter((b) => b._id !== id);
+      renderBookings(bookings);
+    } catch (error) {
+      console.error("Error deleting booking:", error);
+      alert("Failed to delete booking.");
+    }
+  }
+  window.deleteBooking = deleteBooking;
+
+  searchBtn.addEventListener("click", () => {
+    const search = searchInput.value.toLowerCase();
+    const filteredBookings = bookings
+      .filter(
+        (b) =>
+          b.amenity.toLowerCase().includes(search) ||
+          b.name.toLowerCase().includes(search)
+      )
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
+    renderBookings(filteredBookings);
+  });
+
+  fetchBookings();
+})();

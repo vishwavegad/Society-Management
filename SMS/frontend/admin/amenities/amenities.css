@@ -7,7 +7,7 @@ body {
   }
   
   .container {
-    width: 40%;
+    width: 70%;
     margin: 120px auto;
     background: #b0e0e6;
     padding: 40px;
@@ -18,10 +18,12 @@ body {
   h2 {
     color: #000080;
     text-align: center;
+    margin-bottom: 30px;
   }
   
   .search-container {
     text-align: center;
+    margin-bottom: 20px;
   }
   
   #searchInput,
