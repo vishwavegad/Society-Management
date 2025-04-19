@@ -52,6 +52,7 @@ async function createNewBooking(req, res) {
       guests,
       duration,
       paymentAmount,
+      status: "Pending"
     });
 
     await newBooking.save();
@@ -76,34 +77,17 @@ async function getBookingById(req, res) {
 
 // Update booking
 async function updateBooking(req, res) {
+
   try {
-    const {
-      name,
-      contact,
-      flat,
-      amenity,
-      functionName,
-      date,
-      timeSlot,
-      guests,
-      duration,
-      paymentAmount,
-    } = req.body;
+    const { status } = req.body; // Get the status value from the request body
+
+    if (!status || !["Booked", "Rejected"].includes(status)) {
+      return res.status(400).json({ error: "Invalid status value" });
+    }
 
     const updatedBooking = await AmenityBooking.findByIdAndUpdate(
       req.params.id,
-      {
-        name,
-        contact,
-        flat,
-        amenity,
-        functionName,
-        date,
-        timeSlot,
-        guests,
-        duration,
-        paymentAmount,
-      },
+      { status },
       { new: true, runValidators: true }
     );
 
@@ -111,10 +95,50 @@ async function updateBooking(req, res) {
       return res.status(404).json({ error: "Booking not found" });
     }
 
-    res.status(200).json({ msg: "Booking updated", updatedBooking });
+    res.status(200).json({ msg: "Booking status updated", updatedBooking });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
+  
+  // try {
+  //   const {
+  //     name,
+  //     contact,
+  //     flat,
+  //     amenity,
+  //     functionName,
+  //     date,
+  //     timeSlot,
+  //     guests,
+  //     duration,
+  //     paymentAmount,
+  //   } = req.body;
+
+  //   const updatedBooking = await AmenityBooking.findByIdAndUpdate(
+  //     req.params.id,
+  //     {
+  //       name,
+  //       contact,
+  //       flat,
+  //       amenity,
+  //       functionName,
+  //       date,
+  //       timeSlot,
+  //       guests,
+  //       duration,
+  //       paymentAmount,
+  //     },
+  //     { new: true, runValidators: true }
+  //   );
+
+  //   if (!updatedBooking) {
+  //     return res.status(404).json({ error: "Booking not found" });
+  //   }
+
+  //   res.status(200).json({ msg: "Booking updated", updatedBooking });
+  // } catch (error) {
+  //   res.status(500).json({ error: error.message });
+  // }
 }
 
 // Delete booking

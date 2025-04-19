@@ -40,6 +40,11 @@ const AmenityBookingSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    status: {
+      type: String,
+      enum: ["Pending", "Booked", "Rejected"],
+      default: "Pending",
+    },
     createdAt: {
       type: Date,
       default: Date.now,

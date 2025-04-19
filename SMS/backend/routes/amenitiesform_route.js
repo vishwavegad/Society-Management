@@ -10,6 +10,8 @@ const {
 
 const router = express.Router();
 
+router.get("/admin", getAllBookings);
+
 router.route("/").get(getAllBookings).post(createNewBooking);
 
 router

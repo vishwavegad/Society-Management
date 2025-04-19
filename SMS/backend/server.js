@@ -22,7 +22,10 @@ const app = express();
 //to parse JSON requests
 app.use(express.json());
 //for frontend communication
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
+  credentials: true
+}));
 
 connectMongoDB(process.env.MONGODB_URI).then(() =>
   console.log("MongoDB connection established")
