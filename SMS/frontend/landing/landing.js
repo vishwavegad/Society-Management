@@ -54,4 +54,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll(); // Call initially to reveal elements already in view
+
+    // Add this code to landing.js inside the DOMContentLoaded event listener
+
+// Hamburger menu functionality
+const hamburger = document.querySelector('.hamburger-menu');
+const navOptions = document.querySelector('.options');
+
+hamburger.addEventListener('click', () => {
+    // Toggle active class for menu visibility
+    navOptions.classList.toggle('active');
+    // Toggle animation for hamburger icon
+    hamburger.classList.toggle('change');
+});
+
+// Close the menu when a link is clicked
+document.querySelectorAll('.options a').forEach(link => {
+    link.addEventListener('click', () => {
+        navOptions.classList.remove('active');
+        hamburger.classList.remove('change');
+    });
+});
+
+// Close the menu when clicking outside
+document.addEventListener('click', (event) => {
+    const isClickInside = navOptions.contains(event.target) || hamburger.contains(event.target);
+    
+    if (!isClickInside && navOptions.classList.contains('active')) {
+        navOptions.classList.remove('active');
+        hamburger.classList.remove('change');
+    }
+});
 });

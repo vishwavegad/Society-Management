@@ -198,3 +198,81 @@ h2 {
         font-size: 20px; /* Reduce header size for smaller screens */
     }
 }
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #003366;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Transformed hamburger menu */
+.change .bar1 {
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    transform: rotate(45deg) translate(-6px, -6px);
+}
+
+/* Mobile responsiveness adjustments */
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+    
+    .left {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 80%; /* Width of sidebar on mobile */
+        z-index: 999;
+    }
+    
+    .left.active {
+        transform: translateX(0);
+    }
+    
+    .right {
+        width: 100%;
+        margin-left: 0;
+        transition: margin-left 0.3s ease-in-out;
+    }
+    
+    /* Dark overlay when menu is open */
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+    }
+    
+    .overlay.active {
+        display: block;
+    }
+}
