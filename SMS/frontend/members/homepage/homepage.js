@@ -128,5 +128,48 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   loadPage(aboutsocietyBtn, defaultURL);
+
+// Create overlay element for when sidebar is open
+const overlay = document.createElement('div');
+overlay.className = 'overlay';
+document.body.appendChild(overlay);
+
+// Hamburger menu functionality
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+const leftSidebar = document.querySelector('.left');
+
+hamburgerMenu.addEventListener('click', () => {
+    hamburgerMenu.classList.toggle('change');
+    leftSidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
+});
+
+// Close sidebar when clicking on overlay
+overlay.addEventListener('click', () => {
+    hamburgerMenu.classList.remove('change');
+    leftSidebar.classList.remove('active');
+    overlay.classList.remove('active');
+});
+
+// Close sidebar when a menu item is clicked
+const featureButtons = document.querySelectorAll('.features button');
+featureButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            hamburgerMenu.classList.remove('change');
+            leftSidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+    });
+});
+
+// Adjust display on window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        hamburgerMenu.classList.remove('change');
+        leftSidebar.classList.remove('active');
+        overlay.classList.remove('active');
+    }
+});
 });
 
