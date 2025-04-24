@@ -267,3 +267,82 @@ h2 {
         padding: 15px 10px;
     }
 }
+
+/* Add these styles to your existing homepage.css file */
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none; /* Hidden by default, shown only on mobile */
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #003366;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .bar1, .bar2, .bar3 {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.4s;
+  }
+  
+  /* Hamburger animation */
+  .change .bar1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  
+  .change .bar2 {
+    opacity: 0;
+  }
+  
+  .change .bar3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+  
+  /* Overlay for mobile menu */
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .overlay.active {
+    display: block;
+    opacity: 1;
+  }
+  
+  /* Modify your existing media queries */
+  @media screen and (max-width: 768px) {
+    .hamburger-menu {
+      display: block; /* Show on mobile */
+    }
+    
+    .left {
+      width: 80%;
+      max-width: 300px;
+      transform: translateX(-100%); /* Hide off-screen */
+      transition: transform 0.3s ease;
+      z-index: 3; /* Above overlay */
+    }
+    
+    .left.active {
+      transform: translateX(0); /* Show when active */
+    }
+    
+    .right {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
