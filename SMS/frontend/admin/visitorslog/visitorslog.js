@@ -27,31 +27,46 @@
 
     function renderVisitors(visitors){
         visitorTable.innerHTML = "";
+        
+        if(visitors.length === 0) {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `<td colspan="7" style="text-align: center;">No visitors found</td>`;
+            visitorTable.appendChild(tr);
+            return;
+        }
+        
         visitors.forEach(visitor => {
             const tr = document.createElement("tr");
 
             tr.innerHTML = `
-                <td>${visitor.visitorName}</td>
-                <td>${visitor.visitorContact}</td>
-                <td>${visitor.flatNum}</td>
-                <td>${visitor.visitorType}</td>
-                <td>${formatDateTime(visitor.visitorEntryTime)}</td>
-                <td>${
+                <td data-label="Name">${visitor.visitorName}</td>
+                <td data-label="Contact">${visitor.visitorContact}</td>
+                <td data-label="Flat">${visitor.flatNum}</td>
+                <td data-label="Type">${visitor.visitorType}</td>
+                <td data-label="Entry Time">${formatDateTime(visitor.visitorEntryTime)}</td>
+                <td data-label="Exit Time">${
                     !visitor.visitorExitTime
                       ? "--"
                       : formatDateTime(visitor.visitorExitTime)
                   }</td>
-                <td>${visitor.visitorExitStatus}</td>
-            `
+                <td data-label="Status">${visitor.visitorExitStatus}</td>
+            `;
             visitorTable.appendChild(tr);
         });
     }
+
+    // Add enter key functionality to search input
+    searchInput.addEventListener("keyup", (event) => {
+        if (event.key === "Enter") {
+            searchBtn.click();
+        }
+    });
 
     searchBtn.addEventListener("click", ()=>{
         const query = searchInput.value.toLowerCase();
         const filtered = allVisitors.filter(v=>v.visitorName.toLowerCase().includes(query));
         renderVisitors(filtered);
-    })
+    });
 
     function formatDateTime(dateString)
     {
@@ -67,6 +82,6 @@
             hour:"2-digit",
             minute:"2-digit",
             hour12:true
-        })
+        });
     }
 })();

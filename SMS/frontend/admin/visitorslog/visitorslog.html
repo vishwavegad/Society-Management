@@ -13,21 +13,24 @@
             <input type="text" id="searchInput" placeholder="Search by name">
             <button id="searchBtn">Search</button>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Contact</th>
-                    <th>Flat</th>
-                    <th>Type</th>
-                    <th>Entry Time</th>
-                    <th>Exit Time</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody id="visitorTable">
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Contact</th>
+                        <th>Flat</th>
+                        <th>Type</th>
+                        <th>Entry Time</th>
+                        <th>Exit Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="visitorTable">
+                    <!-- Visitors will be added dynamically here -->
+                </tbody>
+            </table>
+        </div>
     </div>
     <script src="../visitorslog/visitorslog.js"></script>
 </body>

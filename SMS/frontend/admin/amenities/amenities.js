@@ -21,8 +21,6 @@
       bookings = fetchedBookings.sort(
         (a, b) => new Date(b.date) - new Date(a.date)
       );
-      console.log(bookings.map((b) => b.date));
-      console.log("Fetched bookings:", bookings);
       renderBookings(bookings);
     } catch (error) {
       console.error("Error fetching bookings:", error);
@@ -32,6 +30,13 @@
 
   function renderBookings(data) {
     bookingTable.innerHTML = "";
+    if (data.length === 0) {
+      const emptyRow = document.createElement("tr");
+      emptyRow.innerHTML = `<td colspan="6" style="text-align: center;">No bookings found</td>`;
+      bookingTable.appendChild(emptyRow);
+      return;
+    }
+    
     data.forEach((booking) => {
       const row = createBookingRow(booking);
       bookingTable.appendChild(row);
@@ -50,13 +55,14 @@
            </select>`
         : `<button class="delete-btn" onclick="deleteBooking('${booking._id}')">Delete</button>`;
 
+    // Create cells with data-label attributes for responsive design
     row.innerHTML = `
-      <td>${booking.amenity}</td>
-      <td>${booking.name}</td>
-      <td>${new Date(booking.date).toLocaleDateString()}</td>
-      <td>${booking.timeSlot}</td>
-      <td class="${getStatusClass(status)}">${status}</td>
-      <td>${actionHTML}</td>
+      <td data-label="Amenity">${booking.amenity}</td>
+      <td data-label="Booked By">${booking.name}</td>
+      <td data-label="Date">${new Date(booking.date).toLocaleDateString()}</td>
+      <td data-label="Time">${booking.timeSlot}</td>
+      <td data-label="Status" class="${getStatusClass(status)}">${status}</td>
+      <td data-label="Action">${actionHTML}</td>
     `;
 
     return row;
@@ -117,6 +123,13 @@
     }
   }
   window.deleteBooking = deleteBooking;
+
+  // Add enter key functionality to search input
+  searchInput.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+      searchBtn.click();
+    }
+  });
 
   searchBtn.addEventListener("click", () => {
     const search = searchInput.value.toLowerCase();

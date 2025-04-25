@@ -13,21 +13,23 @@
       <input type="text" id="searchInput" placeholder="Search by amenity or flat">
       <button id="searchBtn">Search</button>
     </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Amenity</th>
-          <th>Booked By</th>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Status</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody id="bookingTable">
-        <!-- Bookings will be added dynamically here -->
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Amenity</th>
+            <th>Booked By</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="bookingTable">
+          <!-- Bookings will be added dynamically here -->
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <script src="../amenities/amenities.js"></script>

@@ -1,108 +1,115 @@
 /* your existing theme (unchanged) */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f4f5;
-  }
-  
-  .container {
-    width: 70%;
-    margin: 120px auto;
-    background: #b0e0e6;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    color: #000080;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .search-container {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  #searchInput,
-  #searchBtn {
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    outline: none;
-  }
-  
-  #searchInput {
-    width: 30%;
-  }
-  
-  #searchBtn {
-    background-color: #003366;
-    color: white;
-    cursor: pointer;
-  }
-  
-  #searchBtn:hover {
-    background-color: #002244;
-  }
-  
-  #searchInput:focus {
-    border: 1px solid #003366;
-  }
-  
-  table {
-    width: 100%;
-    margin-top: 10px;
-    border-collapse: collapse;
-  }
-  
-  th,
-  td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-  }
-  
-  th {
-    background-color: #003366;
-    color: white;
-  }
-  
-  /* ✅ New Action Buttons */
-  .action-btn {
-    padding: 6px 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    color: white;
-  }
-  
-  .approve {
-    background-color: #28a745;
-  }
-  
-  .reject {
-    background-color: #dc3545;
-  }
-  
-  .approve:hover {
-    background-color: #218838;
-  }
-  
-  .reject:hover {
-    background-color: #c82333;
-  }
-  .status-select {
-    padding: 6px;
-    border-radius: 5px;
-    border: 1px solid #003366;
-    background-color: white;
-    color: #003366;
-  }
-  
-  /* Status label colors */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f4f5;
+}
+
+.container {
+  width: 70%;
+  margin: 120px auto;
+  background: #b0e0e6;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #000080;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.search-container {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+#searchInput,
+#searchBtn {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  outline: none;
+}
+
+#searchInput {
+  width: 30%;
+}
+
+#searchBtn {
+  background-color: #003366;
+  color: white;
+  cursor: pointer;
+}
+
+#searchBtn:hover {
+  background-color: #002244;
+}
+
+#searchInput:focus {
+  border: 1px solid #003366;
+}
+
+table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+th {
+  background-color: #003366;
+  color: white;
+}
+
+/* ✅ New Action Buttons */
+.action-btn {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+}
+
+.approve {
+  background-color: #28a745;
+}
+
+.reject {
+  background-color: #dc3545;
+}
+
+.approve:hover {
+  background-color: #218838;
+}
+
+.reject:hover {
+  background-color: #c82333;
+}
+
+.status-select {
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid #003366;
+  background-color: white;
+  color: #003366;
+}
+
+/* Status label colors */
 .status-pending {
   color: #ffc107; /* Yellow */
   font-weight: bold;
@@ -123,6 +130,8 @@ body {
   border: 1px solid #003366;
   background-color: white;
   color: #003366;
+  width: 100%;
+  max-width: 120px;
 }
 .delete-btn {
   padding: 6px 10px;
@@ -132,35 +141,130 @@ body {
   color: white;
   cursor: pointer;
   margin-top: 5px;
+  width: 100%;
+  max-width: 120px;
 }
 .delete-btn:hover {
   background-color: #c82333;
 }
 
+/* Status class fixes */
+.text-green-500 {
+  color: #28a745; /* Green */
+  font-weight: bold;
+}
+.text-red-500 {
+  color: #dc3545; /* Red */
+  font-weight: bold;
+}
+.text-yellow-500 {
+  color: #ffc107; /* Yellow */
+  font-weight: bold;
+}
 
-
-
-  
 /* Responsive Styles for Tablets (max-width: 768px) */
 @media (max-width: 768px) {
-    .amenity-box {
-        width: calc(50% - 15px);
-    }
+  .container {
+    width: 90%;
+    margin: 60px auto;
+    padding: 20px;
+  }
+  
+  #searchInput {
+    width: 60%;
+  }
+  
+  table {
+    font-size: 14px;
+  }
+  
+  th, td {
+    padding: 6px 4px;
+  }
+  
+  .action-select, .delete-btn {
+    padding: 4px;
+    font-size: 12px;
+  }
 }
 
 /* Responsive Styles for Mobile (max-width: 480px) */
 @media (max-width: 480px) {
-    .amenity-box {
-        width: 100%;
-    }
-
-    .container {
-        margin: 15px;
-        padding: 10px;
-    }
-
-    .icon {
-        font-size: 2em;
-    }
+  .container {
+    width: 95%;
+    margin: 20px auto;
+    padding: 15px 10px;
+  }
+  
+  h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .search-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #searchInput {
+    width: 90%;
+    margin-bottom: 10px;
+  }
+  
+  #searchBtn {
+    width: 90%;
+  }
+  
+  /* Mobile card view for table rows */
+  table {
+    border: 0;
+  }
+  
+  table thead {
+    display: none;
+  }
+  
+  table tr {
+    margin-bottom: 15px;
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    background-color: white;
+  }
+  
+  table td {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding: 8px 8px 8px 45%;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+  
+  table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 45%;
+    padding: 8px;
+    font-weight: bold;
+    text-align: left;
+    background-color: #f7f7f9;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border-right: 1px solid #eee;
+  }
+  
+  .action-select, .delete-btn {
+    max-width: 100%;
+    width: auto;
+  }
 }
-
