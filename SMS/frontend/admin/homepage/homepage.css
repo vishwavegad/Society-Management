@@ -187,92 +187,8 @@ h2 {
     }
 }
 
-/* Existing styles remain unchanged ... */
-
-/* Tablet view (max-width: 768px) */
-@media screen and (max-width: 768px) {
-    .split {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-
-    .left {
-        width: 100%;
-        position: relative;
-    }
-
-    .right {
-        width: 100%;
-        margin-left: 0;
-        padding: 20px;
-        position: relative;
-        height: auto;
-    }
-
-    .center {
-        position: relative;
-        top: 0;
-        left: 0;
-        transform: none;
-        width: 100%;
-    }
-
-    .features {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .features button {
-        width: 100%;
-        max-width: 400px;
-    }
-
-    .left .home button {
-        position: static;
-        margin: 10px 0;
-    }
-
-    footer {
-        position: relative;
-    }
-}
-
-/* Mobile view (max-width: 480px) */
-@media screen and (max-width: 480px) {
-    .profile img {
-        width: 80px;
-        height: 80px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    .upload-button {
-        font-size: 12px;
-        padding: 6px 12px;
-    }
-
-    .features button {
-        font-size: 16px;
-        padding: 8px;
-    }
-
-    .right {
-        padding: 15px;
-    }
-
-    .left, .right {
-        padding: 15px 10px;
-    }
-}
-
-/* Add these styles to your existing homepage.css file */
-
-/* Hamburger Menu */
 .hamburger-menu {
-    display: none; /* Hidden by default, shown only on mobile */
+    display: none;
     cursor: pointer;
     position: fixed;
     top: 20px;
@@ -281,68 +197,69 @@ h2 {
     background-color: #003366;
     padding: 10px;
     border-radius: 5px;
-  }
-  
-  .bar1, .bar2, .bar3 {
-    width: 25px;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 30px;
     height: 3px;
     background-color: white;
-    margin: 5px 0;
+    margin: 6px 0;
     transition: 0.4s;
-  }
-  
-  /* Hamburger animation */
-  .change .bar1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
-  }
-  
-  .change .bar2 {
+}
+
+/* Transformed hamburger menu */
+.change .bar1 {
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.change .bar2 {
     opacity: 0;
-  }
-  
-  .change .bar3 {
-    transform: rotate(45deg) translate(-5px, -6px);
-  }
-  
-  /* Overlay for mobile menu */
-  .overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .overlay.active {
-    display: block;
-    opacity: 1;
-  }
-  
-  /* Modify your existing media queries */
-  @media screen and (max-width: 768px) {
+}
+
+.change .bar3 {
+    transform: rotate(45deg) translate(-6px, -6px);
+}
+
+/* Mobile responsiveness adjustments */
+@media screen and (max-width: 768px) {
     .hamburger-menu {
-      display: block; /* Show on mobile */
+        display: block;
     }
     
     .left {
-      width: 80%;
-      max-width: 300px;
-      transform: translateX(-100%); /* Hide off-screen */
-      transition: transform 0.3s ease;
-      z-index: 3; /* Above overlay */
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 80%; /* Width of sidebar on mobile */
+        z-index: 999;
     }
     
     .left.active {
-      transform: translateX(0); /* Show when active */
+        transform: translateX(0);
     }
     
     .right {
-      width: 100%;
-      margin-left: 0;
+        width: 100%;
+        margin-left: 0;
+        transition: margin-left 0.3s ease-in-out;
     }
-  }
+    
+    /* Dark overlay when menu is open */
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+    }
+    
+    .overlay.active {
+        display: block;
+    }
+}

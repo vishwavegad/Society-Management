@@ -53,12 +53,22 @@ nav.hidden {
     transform: translateY(-100%); /* Slide navbar out of view */
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    padding-left: 5px; /* Reduced from 20px to 5px */
+    position: relative;
+}
+
 .logo img {
     width: 200px;
     height: 200px;
-    /* padding: 50px; */
-    /* text-align: center; */
-    margin-top: 40px;
+    position: absolute;
+    top: -10px;
+    left: 15; /* Reduced from 10px to 0 */
+    object-fit: contain;
 }
 
 .options {
@@ -202,6 +212,14 @@ nav.hidden {
 
 /* Media queries for responsive design */
 @media screen and (max-width: 768px) {
+    .logo img {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: -10px;
+        left: 0; /* Reduced from 10px to 0 */
+        object-fit: contain;
+    }
     .hamburger-menu {
         display: block;
         position: absolute;
@@ -240,5 +258,10 @@ nav.hidden {
     
     .options a:hover {
         background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .logo img {
+        width: 180px;
+        height: 180px;
     }
 }
